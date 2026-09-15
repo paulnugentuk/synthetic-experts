@@ -104,6 +104,41 @@ These skills are a discovery layer. The full depth lives in the operators' own w
 - **Elena Verna** — [Growth Scoop Substack](https://www.growthscoop.com/) · [LinkedIn](https://www.linkedin.com/in/elenaverna/)
 - **Kyle Poyar** — [Growth Unhinged Newsletter](https://www.growthunhinged.com/) · [LinkedIn](https://www.linkedin.com/in/kylepoyar/)
 
+## For maintainers: the corpus tools
+
+The skills above are all a user needs. The `tools/` folder is how the profiles get built: it refreshes each expert's source corpus, which stays on Paul's Mac and isn't part of this repo (`CLAUDE.md` explains why).
+
+```bash
+pip install -r tools/requirements.txt
+export SYNTHETIC_EXPERTS_CORPUS=/path/to/corpus
+python3 tools/refresh_corpus.py --list
+python3 tools/refresh_corpus.py --all --dry-run
+```
+
+Each expert has a `<corpus>/<slug>/sources.yml` listing where their material comes from: Substack or RSS feeds, YouTube videos, manually clipped LinkedIn posts, audio for Whisper, and transcript banks. `--source` and `--skip-source` limit a run to some of them (for example `--source youtube`).
+
+### Transcript banks
+
+A transcript bank is a local folder of markdown transcripts, such as a clone of a podcast archive or your own Whisper output. `refresh_corpus.py` walks it and copies any transcript that belongs to the expert into `fetched/transcript-bank/`.
+
+```yaml
+sources:
+  - type: transcript_bank
+    name: Lenny's Podcast (community mirror)
+    path: ~/transcripts/lennys
+    match:
+      guest: ["Elena Verna"]
+      filenameContains: ["elena-verna"]
+    enabled: true
+```
+
+- `path` is the bank folder. `~` is expanded, and hidden folders such as `.git` are skipped.
+- `match.guest` picks up a transcript whose frontmatter `guest` (or `guests`) field contains one of these names, ignoring case, so "Elena Verna" also matches "Elena Verna 2.0".
+- `match.filenameContains` picks up a transcript whose path inside the bank contains one of these strings, ignoring case. Lenny's mirror names each episode folder after the guest (`episodes/elena-verna-20/transcript.md`), so the folder name counts.
+- A source needs at least one rule. With none, it's skipped, so a whole archive can't be copied by accident.
+
+Each copy gets the standard frontmatter (`source`, `sourceUrl` when the original has one, `title`, `publishedAt`, `fetchedAt`, `speaker`) plus `sourcePath` and `sourceHash`. The hash comes from the bank folder's name and the file's path inside it, which makes re-runs safe: anything already copied is skipped, and the bank itself is only ever read. `--source transcript_bank` runs the banks on their own.
+
 ## About
 
 Built by [Paul Nugent](https://www.linkedin.com/in/pauldnugent/). Part of [The Battlecard](https://thebattlecard.com/) — a weekly newsletter and tools for product marketers building with AI.

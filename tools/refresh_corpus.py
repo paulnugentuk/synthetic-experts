@@ -22,12 +22,14 @@ Handlers:
   - youtube_channel     : yt-dlp (optional)
   - linkedin_manual     : check-only, no auto-fetch
   - whisper_folder      : openai-whisper local OR OpenAI API (optional)
+  - transcript_bank     : copy matching transcripts from a local folder of markdown
+                          (e.g. a clone of a podcast archive); see the README
 
 Source filters (repeatable; take a group name or a raw source type):
     python3 refresh_corpus.py --all --source youtube        # YouTube only, from Terminal
     python3 refresh_corpus.py --all --skip-source youtube   # everything else (the weekly sweep)
   Groups: feeds (substack, rss), youtube (youtube_videos, youtube_channel,
-  youtube_discovery), linkedin, whisper.
+  youtube_discovery), linkedin, whisper, transcript_bank.
 
 Install deps:
     pip install -r requirements.txt --break-system-packages
@@ -37,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import importlib.util
 import json
 import os
@@ -115,10 +118,11 @@ def write_item(
     body: str,
     extra_frontmatter: dict[str, Any] | None = None,
     force: bool = False,
+    slug_suffix: str | None = None,
 ) -> Path:
     """Write a fetched item as markdown with YAML frontmatter.
 
-    Filename: <type>/<YYYY-MM-DD>-<slug>.md
+    Filename: <type>/<YYYY-MM-DD>-<slug>[-<slug_suffix>].md
     Idempotent by default (won't overwrite existing file). Pass force=True to overwrite,
     useful when re-running after handler changes.
     """
@@ -126,7 +130,8 @@ def write_item(
     type_dir.mkdir(parents=True, exist_ok=True)
 
     date_part = (date or dt.datetime.now(dt.timezone.utc)).strftime("%Y-%m-%d")
-    filename = f"{date_part}-{slugify(title)}.md"
+    suffix = f"-{slug_suffix}" if slug_suffix else ""
+    filename = f"{date_part}-{slugify(title)}{suffix}.md"
     path = type_dir / filename
 
     if path.exists() and not force:
@@ -555,6 +560,154 @@ def handle_whisper_folder(
     return (new_count, notes)
 
 
+def _read_frontmatter(text: str) -> tuple[dict[str, Any], str]:
+    """Split markdown into (frontmatter dict, body). No frontmatter gives ({}, text)."""
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)", text, flags=re.S)
+    if not m:
+        return ({}, text)
+    try:
+        fm = yaml.safe_load(m.group(1)) or {}
+    except yaml.YAMLError:
+        fm = {}
+    return (fm if isinstance(fm, dict) else {}, m.group(2))
+
+
+def _as_datetime(value: Any) -> dt.datetime | None:
+    """Frontmatter dates arrive as date, datetime or string; normalise to UTC datetime."""
+    if isinstance(value, dt.datetime):
+        return value if value.tzinfo else value.replace(tzinfo=dt.timezone.utc)
+    if isinstance(value, dt.date):
+        return dt.datetime(value.year, value.month, value.day, tzinfo=dt.timezone.utc)
+    if isinstance(value, str):
+        parsed = parse_iso(value.strip())
+        if parsed:
+            return parsed if parsed.tzinfo else parsed.replace(tzinfo=dt.timezone.utc)
+    return None
+
+
+def _match_bank_file(
+    fm: dict[str, Any], rel_path: str, guests: list[str], fragments: list[str]
+) -> tuple[bool, str | None]:
+    """Return (matched, speaker). Guest names match by case-insensitive containment,
+    so "Elena Verna" matches Lenny's "Elena Verna 2.0". Fragments match anywhere in
+    the path inside the bank, because Lenny's mirror names the folder, not the file."""
+    file_guests = fm.get("guest") or fm.get("guests") or []
+    if isinstance(file_guests, str):
+        file_guests = [file_guests]
+    joined = " | ".join(str(g) for g in file_guests).lower()
+    for g in guests:
+        if g.lower() in joined:
+            return (True, g)
+    path_lower = rel_path.lower()
+    if any(frag in path_lower for frag in fragments):
+        speaker = guests[0] if guests else (str(file_guests[0]) if file_guests else None)
+        return (True, speaker)
+    return (False, None)
+
+
+def _bank_copies(out_dir: Path) -> tuple[set[str], set[str]]:
+    """(sourceHash values, videoId values) of transcripts already copied."""
+    hashes: set[str] = set()
+    video_ids: set[str] = set()
+    if not out_dir.exists():
+        return hashes, video_ids
+    for p in out_dir.glob("*.md"):
+        fm, _ = _read_frontmatter(p.read_text(encoding="utf-8", errors="replace"))
+        if fm.get("sourceHash"):
+            hashes.add(str(fm["sourceHash"]))
+        if fm.get("videoId"):
+            video_ids.add(str(fm["videoId"]))
+    return hashes, video_ids
+
+
+def handle_transcript_bank(
+    source: dict,
+    corpus_dir: Path,
+    dry_run: bool,
+) -> tuple[int, list[str]]:
+    """Copy matching transcripts from a local folder of markdown files.
+
+        - type: transcript_bank
+          name: Lenny's Podcast (community mirror)
+          path: ~/transcripts/lennys
+          match: { guest: ["Elena Verna"], filenameContains: ["elena-verna"] }
+          enabled: true
+
+    Matches land in fetched/transcript-bank/ with standard frontmatter. The bank
+    is only read. Idempotent: each copy records a hash of the bank folder's name
+    plus the file's path inside it, and files with a known hash are skipped.
+    """
+    raw_path = source.get("path")
+    if not raw_path:
+        return (0, ["missing path"])
+    bank = Path(str(raw_path)).expanduser()
+    if not bank.is_dir():
+        return (0, [f"bank folder not found: {bank}"])
+
+    match = source.get("match") or {}
+    guests = [str(g) for g in (match.get("guest") or [])]
+    fragments = [str(s).lower() for s in (match.get("filenameContains") or [])]
+    if not guests and not fragments:
+        return (0, ["no match rules (match.guest / match.filenameContains); skipped so the whole bank isn't copied"])
+
+    seen, seen_videos = _bank_copies(corpus_dir / "fetched" / "transcript-bank")
+    new_count = 0
+    notes: list[str] = []
+
+    for f in sorted(bank.rglob("*.md")):
+        rel = f.relative_to(bank)
+        if any(part.startswith(".") for part in rel.parts):
+            continue  # .git, .github and the like
+        rel_path = rel.as_posix()
+        source_hash = hashlib.sha1(f"{bank.name}/{rel_path}".encode("utf-8")).hexdigest()[:12]
+        if source_hash in seen:
+            continue
+
+        fm, body = _read_frontmatter(f.read_text(encoding="utf-8", errors="replace"))
+        matched, speaker = _match_bank_file(fm, rel_path, guests, fragments)
+        if not matched:
+            continue
+        seen.add(source_hash)
+
+        # Archives sometimes hold the same episode twice (Lenny's mirror has
+        # andy-raskin/ and andy-raskin_/ with one video_id); copy it once.
+        video_id = fm.get("video_id") or fm.get("videoId")
+        if video_id and str(video_id) in seen_videos:
+            notes.append(f"skip duplicate of video {video_id}: {rel_path}")
+            continue
+        if video_id:
+            seen_videos.add(str(video_id))
+
+        if dry_run:
+            notes.append(f"[DRY] would copy: {rel_path}")
+            new_count += 1
+            continue
+
+        title = str(fm.get("title") or (f.parent.name if f.stem == "transcript" else f.stem))
+        extra: dict[str, Any] = {
+            "speaker": speaker,
+            "bank": source.get("name") or bank.name,
+            "sourcePath": rel_path,
+            "sourceHash": source_hash,
+        }
+        if video_id:
+            extra["videoId"] = str(video_id)
+
+        write_item(
+            corpus_dir,
+            "transcript-bank",
+            date=_as_datetime(fm.get("publish_date") or fm.get("publishedAt") or fm.get("date")),
+            title=title,
+            source_url=fm.get("sourceUrl") or fm.get("youtube_url") or fm.get("url"),
+            body=body,
+            extra_frontmatter=extra,
+            slug_suffix=source_hash[:8],
+        )
+        new_count += 1
+
+    return (new_count, notes)
+
+
 HANDLERS = {
     "substack": handle_feed,
     "rss": handle_feed,
@@ -562,6 +715,7 @@ HANDLERS = {
     "youtube_channel": handle_youtube_channel,
     "linkedin_manual": handle_linkedin_manual,
     "whisper_folder": handle_whisper_folder,
+    "transcript_bank": handle_transcript_bank,
 }
 
 # Groups for --source / --skip-source. Raw source types are accepted too.
@@ -573,6 +727,7 @@ SOURCE_GROUPS = {
     "youtube_discovery": "youtube",
     "linkedin_manual": "linkedin",
     "whisper_folder": "whisper",
+    "transcript_bank": "transcript_bank",
 }
 SOURCE_CHOICES = sorted(set(SOURCE_GROUPS) | set(SOURCE_GROUPS.values()))
 
