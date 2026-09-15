@@ -255,6 +255,32 @@ def handle_feed(
     return (new_count, notes)
 
 
+VIDEO_ID_RE = re.compile(r'^videoId:\s*"?([^"\s]+)"?\s*$')
+
+
+def fetched_video_ids(youtube_dir: Path) -> set[str]:
+    """Video IDs already in the corpus, read from each file's `videoId:` frontmatter.
+
+    Filenames can't be used for this: slugify() lowercases them and strips the
+    `__<id>` marker, and YouTube IDs are case-sensitive.
+    """
+    ids: set[str] = set()
+    if not youtube_dir.exists():
+        return ids
+    for p in youtube_dir.glob("*.md"):
+        with p.open(encoding="utf-8") as fh:
+            if fh.readline().strip() != "---":
+                continue
+            for line in fh:
+                if line.strip() == "---":
+                    break
+                m = VIDEO_ID_RE.match(line)
+                if m:
+                    ids.add(m.group(1))
+                    break
+    return ids
+
+
 def handle_youtube_videos(
     source: dict,
     corpus_dir: Path,
@@ -269,12 +295,7 @@ def handle_youtube_videos(
     if not video_ids:
         return (0, ["no videoIds configured"])
 
-    out_path = corpus_dir / "fetched" / "youtube"
-    out_path.mkdir(parents=True, exist_ok=True)
-
-    # Track already-fetched IDs via filename suffix `__<id>.md`
-    already_fetched = {p.name.split("__")[-1].removesuffix(".md")
-                       for p in out_path.glob("*__*.md")}
+    already_fetched = fetched_video_ids(corpus_dir / "fetched" / "youtube")
 
     api = YouTubeTranscriptApi()
     new_count = 0
@@ -286,6 +307,13 @@ def handle_youtube_videos(
             continue
 
         if vid in already_fetched:
+            continue
+        already_fetched.add(vid)  # guards against the same ID listed twice
+
+        if dry_run:
+            # No network in dry-run: report what's pending and move on.
+            notes.append(f"[DRY] would fetch: https://www.youtube.com/watch?v={vid}")
+            new_count += 1
             continue
 
         try:
@@ -307,16 +335,11 @@ def handle_youtube_videos(
         url = f"https://www.youtube.com/watch?v={vid}"
         title = f"YouTube video {vid}"
 
-        if dry_run:
-            notes.append(f"[DRY] would fetch: {url} ({len(text)} chars)")
-            new_count += 1
-            continue
-
         write_item(
             corpus_dir,
             "youtube",
             date=dt.datetime.now(dt.timezone.utc),
-            title=f"{title}__{vid}",  # embed id in filename for idempotency
+            title=f"{title}__{vid}",  # filename only; dedup reads videoId from frontmatter
             source_url=url,
             body=text,
             extra_frontmatter={
@@ -728,7 +751,8 @@ def refresh_expert(slug: str, dry_run: bool = False, force: bool = False, discov
         totals["handlers_run"] += 1
         prefix = f"[{stype}: {source.get('name', '')}]"
         if new_count:
-            report.append(f"{prefix} fetched {new_count} item(s)")
+            verb = "would fetch" if dry_run else "fetched"
+            report.append(f"{prefix} {verb} {new_count} item(s)")
         for n in notes:
             report.append(f"  {prefix} {n}")
 
