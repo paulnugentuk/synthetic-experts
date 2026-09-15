@@ -57,3 +57,11 @@ yarn-error.log
 *.tmp
 *.temp
 .cache/
+
+# Local-only material (see CLAUDE.md, "Repo split"). Anchored to the repo root
+# so the test fixture corpus under tools/tests/fixtures/ stays tracked.
+/corpus/
+/smoke-tests/
+/roundtables/
+profiles/*.bak
+.venv/

@@ -1,0 +1,8 @@
+# Test fixture. Sources are disabled so tests and CI never touch the network.
+expert: beta-expert
+lastFullRefresh: null
+sources:
+  - type: youtube_videos
+    name: Beta's talks (fixture)
+    videoIds: ["aaaaaaaaaaa"]
+    enabled: false
