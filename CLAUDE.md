@@ -45,6 +45,12 @@ The AI-Lab symlink points at `~/Code/synthetic-experts`, so whatever branch is c
 
 Issues labelled `agent` can be done by a cloud session from this repo alone: tool code, tests, prompts, skills and docs. Issues labelled `desk` need the Mac, because they touch the local corpus, pull YouTube from a residential IP, run Whisper, or need Paul's judgement. A cloud session that picks up a `desk` ticket should stop and say so on the issue.
 
+YouTube in particular: `refresh_corpus.py` pulls English auto-subtitles with yt-dlp, and YouTube tends to block datacentre IPs, so the weekly sweep leaves it out (`--skip-source youtube`). Paul runs it from Terminal on the Mac instead:
+
+```bash
+python3 tools/refresh_corpus.py --all --source youtube
+```
+
 ### Tests and CI
 
 `python -m pytest tools/` runs the tool tests. CI (`.github/workflows/ci.yml`) runs them on every PR, plus `refresh_corpus.py --list` against the fixture corpus in `tools/tests/fixtures/corpus/`. Fixtures should be made up; real corpus content stays out of the repo.

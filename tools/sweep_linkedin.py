@@ -12,8 +12,10 @@ The full weekly pipeline:
   2. This script runs route_linkedin_posts.py to move each post to the right
      expert's fetched/linkedin/ based on author match.
 
-  3. This script runs refresh_corpus.py --all to pull any new Substack posts,
-     YouTube videos, and flag the newly-routed LinkedIn posts.
+  3. This script runs refresh_corpus.py --all --skip-source youtube to pull any
+     new Substack/RSS posts and flag the newly-routed LinkedIn posts. YouTube is
+     left out because it tends to block the sandbox's datacentre IP; Paul runs
+     `refresh_corpus.py --all --source youtube` from Terminal instead.
 
   4. Summary printed at the end.
 
@@ -40,6 +42,9 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 import route_linkedin_posts as router          # noqa: E402
 import refresh_corpus as refresher              # noqa: E402
+
+# YouTube tends to block datacentre IPs, which is where the scheduled sweep runs.
+SWEEP_SKIP_SOURCES = ["youtube"]
 
 
 BANNER = """
@@ -100,7 +105,7 @@ def main() -> int:
         print("Step 3 — Skipped (--skip-refresh)")
         return 0
 
-    print("Step 3 — Full corpus refresh (all experts)")
+    print("Step 3 — Corpus refresh, all experts (YouTube skipped)")
     slugs = refresher.list_experts()
     if not slugs:
         print("  No experts with sources.yml found.")
@@ -108,7 +113,8 @@ def main() -> int:
 
     total_new = 0
     for slug in slugs:
-        res = refresher.refresh_expert(slug, dry_run=args.dry_run, force=False, discover=False)
+        res = refresher.refresh_expert(slug, dry_run=args.dry_run, force=False, discover=False,
+                                       skip_sources=SWEEP_SKIP_SOURCES)
         if res.get("error"):
             print(f"  [{slug}] ERROR: {res['error']}")
             continue
@@ -122,6 +128,8 @@ def main() -> int:
     print("")
     print(f"Summary: routed {c['routed']} LinkedIn post(s), "
           f"{total_new} new fetched item(s) across {len(slugs)} expert(s).")
+    print("YouTube isn't part of this sweep. From Terminal on the Mac:")
+    print("  python3 tools/refresh_corpus.py --all --source youtube")
     return 0
 
 

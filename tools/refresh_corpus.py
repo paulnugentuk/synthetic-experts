@@ -17,10 +17,17 @@ Regenerates <corpus>/<slug>/index.md.
 
 Handlers:
   - substack / rss      : feedparser (required)
-  - youtube_videos      : youtube-transcript-api (required for this handler)
-  - youtube_channel     : yt-dlp + youtube-transcript-api (optional)
+  - youtube_videos      : yt-dlp English auto-subtitles (run from the Mac; YouTube
+                          tends to block datacentre IPs)
+  - youtube_channel     : yt-dlp (optional)
   - linkedin_manual     : check-only, no auto-fetch
   - whisper_folder      : openai-whisper local OR OpenAI API (optional)
+
+Source filters (repeatable; take a group name or a raw source type):
+    python3 refresh_corpus.py --all --source youtube        # YouTube only, from Terminal
+    python3 refresh_corpus.py --all --skip-source youtube   # everything else (the weekly sweep)
+  Groups: feeds (substack, rss), youtube (youtube_videos, youtube_channel,
+  youtube_discovery), linkedin, whisper.
 
 Install deps:
     pip install -r requirements.txt --break-system-packages
@@ -30,10 +37,16 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import importlib.util
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
+import time
+from html import unescape as html_unescape
 from pathlib import Path
 from typing import Any
 
@@ -45,8 +58,7 @@ except ImportError:
 
 # --- Optional deps (imported lazily inside handlers) ---
 # feedparser                : for substack/rss
-# youtube_transcript_api    : for youtube_videos, youtube_channel
-# yt_dlp                    : for youtube_channel
+# yt_dlp                    : for youtube_videos (run as a subprocess), youtube_channel, --discover
 # whisper (or openai SDK)   : for whisper_folder
 
 
@@ -281,25 +293,83 @@ def fetched_video_ids(youtube_dir: Path) -> set[str]:
     return ids
 
 
+YOUTUBE_PAUSE_SECONDS = 2  # between videos in one run, to go easy on YouTube
+
+_VTT_TIMING_RE = re.compile(r"^\d{2}:\d{2}(?::\d{2})?\.\d{3}\s+-->")
+_VTT_HEADER_RE = re.compile(r"^(WEBVTT|Kind:|Language:|NOTE\b|STYLE\b|REGION\b)")
+_VTT_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def vtt_to_text(vtt: str) -> str:
+    """Turn a WebVTT caption file into plain text, one caption line per line.
+
+    YouTube auto-captions roll: each cue repeats the previous line above the new
+    one, and short bridging cues repeat it again. Stripping the inline timing
+    tags and dropping any line identical to the one before collapses that back
+    to a single copy.
+    """
+    out: list[str] = []
+    for raw in vtt.splitlines():
+        line = raw.strip()
+        if not line or _VTT_TIMING_RE.match(line) or _VTT_HEADER_RE.match(line):
+            continue
+        line = html_unescape(_VTT_TAG_RE.sub("", line)).strip()
+        if line and (not out or out[-1] != line):
+            out.append(line)
+    return "\n".join(out)
+
+
+def _yt_dlp_command() -> list[str] | None:
+    """yt-dlp from this Python if installed, else the yt-dlp binary on PATH."""
+    if importlib.util.find_spec("yt_dlp"):
+        return [sys.executable, "-m", "yt_dlp"]
+    exe = shutil.which("yt-dlp")
+    return [exe] if exe else None
+
+
+def fetch_youtube_transcript(video_id: str) -> str:
+    """Pull English auto-captions for one video with yt-dlp; return plain text.
+
+    Same as: yt-dlp --write-auto-subs --sub-lang en --skip-download --sub-format vtt
+    """
+    base = _yt_dlp_command()
+    if base is None:
+        raise RuntimeError("yt-dlp not installed (pip install yt-dlp)")
+    with tempfile.TemporaryDirectory() as tmp:
+        cmd = [
+            *base,
+            "--write-auto-subs", "--sub-lang", "en", "--skip-download", "--sub-format", "vtt",
+            "--quiet", "--no-warnings",
+            "-o", os.path.join(tmp, "%(id)s.%(ext)s"),
+            "--", video_id,  # "--" because some IDs start with a dash
+        ]
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        if r.returncode != 0:
+            detail = (r.stderr.strip().splitlines() or ["no output"])[-1]
+            raise RuntimeError(f"yt-dlp exit {r.returncode}: {detail}")
+        vtts = sorted(Path(tmp).glob("*.vtt"))
+        if not vtts:
+            raise RuntimeError("no English auto-captions available")
+        return vtt_to_text(vtts[0].read_text(encoding="utf-8"))
+
+
 def handle_youtube_videos(
     source: dict,
     corpus_dir: Path,
     dry_run: bool,
 ) -> tuple[int, list[str]]:
-    try:
-        from youtube_transcript_api import YouTubeTranscriptApi
-    except ImportError:
-        return (0, ["youtube-transcript-api not installed — skipping. pip install youtube-transcript-api --break-system-packages"])
-
     video_ids = source.get("videoIds") or []
     if not video_ids:
         return (0, ["no videoIds configured"])
 
+    if not dry_run and _yt_dlp_command() is None:
+        return (0, ["yt-dlp not installed — skipping. pip install yt-dlp"])
+
     already_fetched = fetched_video_ids(corpus_dir / "fetched" / "youtube")
 
-    api = YouTubeTranscriptApi()
     new_count = 0
     notes: list[str] = []
+    requested = 0
 
     for vid in video_ids:
         if vid.startswith("TBD_") or len(vid) < 8:
@@ -316,18 +386,16 @@ def handle_youtube_videos(
             new_count += 1
             continue
 
+        if requested and YOUTUBE_PAUSE_SECONDS:
+            time.sleep(YOUTUBE_PAUSE_SECONDS)
+        requested += 1
+
         try:
-            fetched = api.fetch(vid)
+            text = fetch_youtube_transcript(vid)
         except Exception as e:
-            # Specific error classes vary between library versions; catch broadly
-            etype = type(e).__name__
-            notes.append(f"{vid}: fetch failed ({etype}: {e})")
+            notes.append(f"{vid}: fetch failed ({type(e).__name__}: {e})")
             continue
 
-        # FetchedTranscript iterates FetchedTranscriptSnippet (with .text/.start/.duration)
-        segments = list(fetched)
-        text = "\n".join(getattr(seg, "text", "").strip()
-                         for seg in segments if getattr(seg, "text", "").strip())
         if not text.strip():
             notes.append(f"{vid}: empty transcript")
             continue
@@ -345,7 +413,7 @@ def handle_youtube_videos(
             extra_frontmatter={
                 "videoId": vid,
                 "transcriptSource": "auto-captions",
-                "note": "Auto-generated captions via youtube-transcript-api. Speaker labels not preserved.",
+                "note": "Auto-generated captions via yt-dlp (VTT, rolling lines collapsed). Speaker labels not preserved.",
             },
         )
         new_count += 1
@@ -495,6 +563,27 @@ HANDLERS = {
     "linkedin_manual": handle_linkedin_manual,
     "whisper_folder": handle_whisper_folder,
 }
+
+# Groups for --source / --skip-source. Raw source types are accepted too.
+SOURCE_GROUPS = {
+    "substack": "feeds",
+    "rss": "feeds",
+    "youtube_videos": "youtube",
+    "youtube_channel": "youtube",
+    "youtube_discovery": "youtube",
+    "linkedin_manual": "linkedin",
+    "whisper_folder": "whisper",
+}
+SOURCE_CHOICES = sorted(set(SOURCE_GROUPS) | set(SOURCE_GROUPS.values()))
+
+
+def source_selected(stype: str, only: list[str] | None = None, skip: list[str] | None = None) -> bool:
+    names = {stype, SOURCE_GROUPS.get(stype, stype)}
+    if only and not names & set(only):
+        return False
+    if skip and names & set(skip):
+        return False
+    return True
 
 
 # --- YouTube discovery -------------------------------------------------------
@@ -701,7 +790,14 @@ def regenerate_index(corpus_dir: Path, config: dict) -> None:
 
 # --- Orchestration -----------------------------------------------------------
 
-def refresh_expert(slug: str, dry_run: bool = False, force: bool = False, discover: bool = False) -> dict:
+def refresh_expert(
+    slug: str,
+    dry_run: bool = False,
+    force: bool = False,
+    discover: bool = False,
+    only_sources: list[str] | None = None,
+    skip_sources: list[str] | None = None,
+) -> dict:
     corpus_dir = CORPUS_ROOT / slug
     config_path = corpus_dir / "sources.yml"
 
@@ -710,13 +806,14 @@ def refresh_expert(slug: str, dry_run: bool = False, force: bool = False, discov
 
     config = yaml.safe_load(config_path.read_text())
     sources = config.get("sources") or []
+    filtered = bool(only_sources or skip_sources)
 
-    totals = {"new_items": 0, "handlers_run": 0, "handlers_skipped": 0}
+    totals = {"new_items": 0, "handlers_run": 0, "handlers_skipped": 0, "handlers_filtered": 0}
     report: list[str] = []
 
     # --- Optional discovery step: finds candidate YouTube videos, may mutate
     # the videoIds list of a sibling youtube_videos source.
-    if discover:
+    if discover and source_selected("youtube_discovery", only_sources, skip_sources):
         try:
             report.extend(run_youtube_discovery(config, corpus_dir, dry_run))
         except Exception as e:
@@ -730,6 +827,10 @@ def refresh_expert(slug: str, dry_run: bool = False, force: bool = False, discov
 
         # Discovery is handled separately (above) — don't log a "no handler" warning for it
         if stype == "youtube_discovery":
+            continue
+
+        if not source_selected(stype, only_sources, skip_sources):
+            totals["handlers_filtered"] += 1
             continue
 
         handler = HANDLERS.get(stype)
@@ -757,7 +858,8 @@ def refresh_expert(slug: str, dry_run: bool = False, force: bool = False, discov
             report.append(f"  {prefix} {n}")
 
     if not dry_run:
-        config["lastFullRefresh"] = iso_now()
+        if not filtered:  # a partial run isn't a full refresh
+            config["lastFullRefresh"] = iso_now()
         config_path.write_text(
             yaml.dump(config, sort_keys=False, allow_unicode=True, default_flow_style=False),
             encoding="utf-8",
@@ -784,6 +886,10 @@ def main() -> int:
     parser.add_argument("--force", action="store_true", help="Re-fetch and overwrite existing items (use after handler changes)")
     parser.add_argument("--discover", action="store_true", help="Run YouTube discovery queries before fetch; auto-promote strict matches")
     parser.add_argument("--list", action="store_true", help="List experts with sources.yml")
+    parser.add_argument("--source", action="append", choices=SOURCE_CHOICES, metavar="NAME",
+                        help="Only run these sources (repeatable). Groups: feeds, youtube, linkedin, whisper; raw types also work.")
+    parser.add_argument("--skip-source", action="append", choices=SOURCE_CHOICES, metavar="NAME",
+                        help="Skip these sources (repeatable). The weekly sweep skips youtube.")
     args = parser.parse_args()
 
     if args.list:
@@ -806,7 +912,8 @@ def main() -> int:
     exit_code = 0
     for slug in slugs:
         print(f"\n=== {slug} ===")
-        result = refresh_expert(slug, dry_run=args.dry_run, force=args.force, discover=args.discover)
+        result = refresh_expert(slug, dry_run=args.dry_run, force=args.force, discover=args.discover,
+                                only_sources=args.source, skip_sources=args.skip_source)
         if result.get("error"):
             print(f"ERROR: {result['error']}")
             exit_code = 1
@@ -814,9 +921,10 @@ def main() -> int:
         for line in result["report"]:
             print(line)
         totals = result["totals"]
+        filtered = f", {totals['handlers_filtered']} filtered out" if totals["handlers_filtered"] else ""
         print(f"Summary: {totals['new_items']} new item(s), "
               f"{totals['handlers_run']} handler(s) run, "
-              f"{totals['handlers_skipped']} disabled.")
+              f"{totals['handlers_skipped']} disabled{filtered}.")
 
     return exit_code
 
