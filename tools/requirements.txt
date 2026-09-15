@@ -4,9 +4,8 @@
 
 PyYAML>=6.0
 feedparser>=6.0.11
-youtube-transcript-api>=0.6.2
 html2text>=2020.1.16
-yt-dlp>=2024.4.9          # required for --discover; also powers youtube_channel
+yt-dlp>=2024.4.9          # YouTube subtitles (youtube_videos), youtube_channel and --discover
 anthropic>=0.39.0         # required for smoke_test.py (distinctiveness harness)
 
 # Optional — for local Whisper transcription.

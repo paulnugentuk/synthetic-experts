@@ -10,7 +10,6 @@ from __future__ import annotations
 import shutil
 import sys
 from pathlib import Path
-from types import SimpleNamespace
 
 import pytest
 
@@ -28,31 +27,28 @@ def corpus_with(tmp_path: Path, fixture: str) -> Path:
     return corpus_dir
 
 
-class FakeApi:
-    calls: list[str] = []
+class FakeFetch:
+    def __init__(self):
+        self.calls: list[str] = []
 
-    def fetch(self, vid):
-        FakeApi.calls.append(vid)
-        return [SimpleNamespace(text=f"transcript for {vid}")]
-
-
-class NoNetworkApi:
-    def fetch(self, vid):
-        raise AssertionError(f"dry-run made a network call for {vid}")
+    def __call__(self, vid):
+        self.calls.append(vid)
+        return f"transcript for {vid}"
 
 
 @pytest.fixture
 def fake_api(monkeypatch):
-    import youtube_transcript_api
-    FakeApi.calls = []
-    monkeypatch.setattr(youtube_transcript_api, "YouTubeTranscriptApi", FakeApi)
-    return FakeApi
+    fake = FakeFetch()
+    monkeypatch.setattr(rc, "fetch_youtube_transcript", fake)
+    monkeypatch.setattr(rc, "YOUTUBE_PAUSE_SECONDS", 0)
+    return fake
 
 
 @pytest.fixture
 def no_network(monkeypatch):
-    import youtube_transcript_api
-    monkeypatch.setattr(youtube_transcript_api, "YouTubeTranscriptApi", NoNetworkApi)
+    def refuse(vid):
+        raise AssertionError(f"dry-run made a network call for {vid}")
+    monkeypatch.setattr(rc, "fetch_youtube_transcript", refuse)
 
 
 # Fixture 1: same title, different IDs (the IDs differ only in case, which the
