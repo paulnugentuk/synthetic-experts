@@ -1,0 +1,8 @@
+# Test fixture. Sources are disabled so tests and CI never touch the network.
+expert: alpha-expert
+lastFullRefresh: null
+sources:
+  - type: substack
+    name: Alpha's newsletter (fixture)
+    url: https://example.com/feed
+    enabled: false

@@ -1,0 +1,18 @@
+# Corpus refresher dependencies.
+# Install (from the repo root): pip install -r tools/requirements.txt
+# On the Mac's system Python, add --break-system-packages or use a venv.
+
+PyYAML>=6.0
+feedparser>=6.0.11
+youtube-transcript-api>=0.6.2
+html2text>=2020.1.16
+yt-dlp>=2024.4.9          # required for --discover; also powers youtube_channel
+anthropic>=0.39.0         # required for smoke_test.py (distinctiveness harness)
+
+# Optional — for local Whisper transcription.
+# Install only if you want to transcribe audio without hitting OpenAI's API.
+# openai-whisper>=20231117
+
+# Optional — for OpenAI API-based Whisper ($0.006/min).
+# Install only if you prefer cloud transcription.
+# openai>=1.0.0

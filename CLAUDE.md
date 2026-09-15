@@ -12,9 +12,46 @@ Each `skills/<name>/SKILL.md` is **self-contained** — the system prompt, profi
 
 The reference `profiles/` folder at the repo root mirrors the inlined content for transparency and contribution — but it is not loaded at runtime. If you edit a profile there, you must also update the corresponding `skills/<name>/SKILL.md` for the change to take effect for installed users.
 
-## Source of Truth (developer-facing only)
+## Repo split (from 15/09/2026, issue #1)
 
-The battlecard source repo at `/Users/paulnugent/AI-Lab/projects/battlecard/synthetic-experts/` is the working copy where new profiles are drafted, smoke-tested, and refreshed. When changes ship, port them into this distribution repo by:
+This repo holds the public skill pack (`skills/`, `profiles/`) and, since issue #1, the tooling that builds it (`tools/`, `prompts/`). The source corpus stays on Paul's Mac.
+
+| In this repo (public) | Local only (gitignored) |
+|---|---|
+| `tools/*.py`, `tools/requirements.txt`, `tools/tests/` | `corpus/`: fetched transcripts, posts, each expert's `sources.yml` |
+| `prompts/base-system-prompt.md`, `prompts/distillation-prompt.md` | `smoke-tests/`, `roundtables/`: run outputs |
+| `skills/`, `profiles/` | Draft profiles and `profiles/*.bak` in AI-Lab |
+
+Why: cloud sessions can only see GitHub, so the tools need to live here for agents to work on them. The corpus is other people's transcripts and posts, which probably don't belong in a public repo, so it stays on the Mac.
+
+### Pointing the tools at the corpus
+
+Set `SYNTHETIC_EXPERTS_CORPUS` to the corpus folder:
+
+```bash
+export SYNTHETIC_EXPERTS_CORPUS=~/AI-Lab/projects/battlecard/synthetic-experts/corpus
+python3 tools/refresh_corpus.py --list
+```
+
+When it's unset, the tools look for `corpus/` next to `tools/`. On the Mac, `~/AI-Lab/projects/battlecard/synthetic-experts/tools` is a symlink to this repo's `tools/`, so a run from AI-Lab (which is what the weekly Cowork sweep does) finds the AI-Lab corpus without the variable. That only works because the scripts build paths with `os.path.abspath`, which leaves symlinks alone; `Path.resolve()` would follow the symlink into this repo. `tools/tests/test_paths.py` checks it.
+
+Profiles, prompts and run outputs follow the same rule: they're read relative to where the script was invoked. From AI-Lab that means the AI-Lab working copies; from a clone it means this repo's.
+
+### Keep the main clone on `main`
+
+The AI-Lab symlink points at `~/Code/synthetic-experts`, so whatever branch is checked out there is what the scheduled sweep runs. Do feature work in a worktree (`claude --worktree <branch>` or `git worktree add`), and `git pull` in the main clone after each merge.
+
+### Which tickets need the Mac
+
+Issues labelled `agent` can be done by a cloud session from this repo alone: tool code, tests, prompts, skills and docs. Issues labelled `desk` need the Mac, because they touch the local corpus, pull YouTube from a residential IP, run Whisper, or need Paul's judgement. A cloud session that picks up a `desk` ticket should stop and say so on the issue.
+
+### Tests and CI
+
+`python -m pytest tools/` runs the tool tests. CI (`.github/workflows/ci.yml`) runs them on every PR, plus `refresh_corpus.py --list` against the fixture corpus in `tools/tests/fixtures/corpus/`. Fixtures should be made up; real corpus content stays out of the repo.
+
+## Source of Truth for profiles (developer-facing only)
+
+Profiles are still drafted, smoke-tested and refreshed in AI-Lab at `/Users/paulnugent/AI-Lab/projects/battlecard/synthetic-experts/`. When changes ship, port them into this distribution repo by:
 
 1. Updating the canonical profile copy in `profiles/<name>.md`
 2. Updating the corresponding `skills/<name>/SKILL.md` (re-inline the relevant sections)
@@ -36,4 +73,4 @@ Skills are designed to be installed by end-users, not forked or modified. Voice 
 - README with install instructions and example
 - MIT licence
 
-Out of scope for v1: corpus/smoke-tests/tools directories, Chris Orlob profile, API wrapper, persistence layer, hosted demo.
+Out of scope for v1: the corpus and run outputs (local only, see Repo split), Chris Orlob profile, API wrapper, persistence layer, hosted demo.
