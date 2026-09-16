@@ -95,7 +95,7 @@ def build_expert_registry() -> list[dict[str, Any]]:
 
     for profile in sorted(PROFILES_DIR.glob("*.md")):
         fm, _ = read_frontmatter_and_body(profile)
-        slug = fm.get("slug")
+        slug = fm.get("slug") or profile.stem  # published profiles carry no slug field
         name = fm.get("name")
         if not slug or not name:
             continue
