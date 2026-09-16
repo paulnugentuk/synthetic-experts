@@ -33,13 +33,20 @@ export SYNTHETIC_EXPERTS_CORPUS=~/AI-Lab/projects/battlecard/synthetic-experts/c
 python3 tools/refresh_corpus.py --list
 ```
 
-When it's unset, the tools look for `corpus/` next to `tools/`. On the Mac, `~/AI-Lab/projects/battlecard/synthetic-experts/tools` is a symlink to this repo's `tools/`, so a run from AI-Lab (which is what the weekly Cowork sweep does) finds the AI-Lab corpus without the variable. That only works because the scripts build paths with `os.path.abspath`, which leaves symlinks alone; `Path.resolve()` would follow the symlink into this repo. `tools/tests/test_paths.py` checks it.
+When it's unset, the tools look for `corpus/` next to `tools/`. On the Mac, `~/AI-Lab/projects/battlecard/synthetic-experts/tools` is a relative symlink to `../../synthetic-experts-skillpack/tools`, so a run through that path finds the AI-Lab corpus without the variable. That only works because the scripts build paths with `os.path.abspath`, which leaves symlinks alone; `Path.resolve()` would follow the symlink into the clone. `tools/tests/test_paths.py` checks it.
 
 Profiles, prompts and run outputs follow the same rule: they're read relative to where the script was invoked. From AI-Lab that means the AI-Lab working copies; from a clone it means this repo's.
 
-### Keep the main clone on `main`
+### Two clones on the Mac, one job each (decided 16/09/2026)
 
-The AI-Lab symlink points at `~/Code/synthetic-experts`, so whatever branch is checked out there is what the scheduled sweep runs. Do feature work in a worktree (`claude --worktree <branch>` or `git worktree add`), and `git pull` in the main clone after each merge.
+- `~/Code/synthetic-experts` is the dev checkout. Branch, test and open PRs here.
+- `~/AI-Lab/projects/synthetic-experts-skillpack` is the runtime clone. The weekly Cowork sweep runs its `tools/`, because a Cowork scheduled task mounts a single folder (`~/AI-Lab`) and can't see `~/Code`. Keep it on `main` with no local changes, and after each merge run:
+
+```bash
+git -C ~/AI-Lab/projects/synthetic-experts-skillpack pull --ff-only
+```
+
+Don't clone the repo anywhere else, and don't point anything in AI-Lab at `~/Code`. Absolute paths outside `~/AI-Lab` don't resolve inside the sandbox.
 
 ### Which tickets need the Mac
 
