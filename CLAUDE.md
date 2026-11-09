@@ -62,6 +62,10 @@ python3 tools/refresh_corpus.py --all --source youtube
 
 `python -m pytest tools/` runs the tool tests. CI (`.github/workflows/ci.yml`) runs them on every PR, plus `refresh_corpus.py --list` against the fixture corpus in `tools/tests/fixtures/corpus/`. Fixtures should be made up; real corpus content stays out of the repo.
 
+### Quote check
+
+`python3 tools/check_quotes.py [slug ...]` confirms that every voice sample in a profile (`> "words" — source`) appears word for word in that expert's fetched corpus, ignoring case, punctuation and line breaks. It exits 1 when one is missing. The corpus is only on the Mac, so run it there after any edit to a profile's voice samples; CI runs its tests on made-up fixtures only.
+
 ## Source of Truth for profiles (developer-facing only)
 
 Profiles are still drafted, smoke-tested and refreshed in AI-Lab at `/Users/paulnugent/AI-Lab/projects/battlecard/synthetic-experts/`. When changes ship, port them into this distribution repo by:
