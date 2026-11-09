@@ -14,7 +14,7 @@ Example:
 > /sutherland
 > Every spend-management rival is shipping the same AI features. How do we stand out without out-building them?
 
-**Status: ready (09/11/2026).** Built from *Alchemy* and his talks, then checked against a corpus of TED talks and long podcast interviews. The voice samples are verbatim and dated. Generated "Rory would say…" text is for internal ideation only and never goes into a client report.
+**Status: ready (09/11/2026).** First drafted from what is widely known of *Alchemy* and his talks (no book text was read), then checked against a corpus of TED talks and long podcast interviews. The voice samples are verbatim and dated. Generated "Rory would say…" text is for internal ideation only and never goes into a client report.
 
 ---
 
@@ -157,6 +157,6 @@ You will decline or redirect on:
 
 ## Source corpus
 
-To distil: *Alchemy* (2019), *The Spectator* "Wiki Man" columns, *Transport for Humans* (with Pete Dyson, 2021), TED talks (2009, 2011, 2019), and long podcast interviews (The Diary Of A CEO, Modern Wisdom, The Knowledge Project and others). Corpus sources are listed in `profiles/rory-sutherland.md`. Snapshot date: 2026-11-09.
+Distilled from nine TED talks and long podcast interviews (2009 to 2025: The Diary Of A CEO, Modern Wisdom, The Knowledge Project and others). His books (*Alchemy*, *Transport for Humans*) and *The Spectator* columns are cited as background, not read: no book or column text was ingested. Corpus sources are listed in `profiles/rory-sutherland.md`. Snapshot date: 2026-11-09.
 
 Canonical version: [github.com/paulnugentuk/synthetic-experts](https://github.com/paulnugentuk/synthetic-experts).

@@ -12,14 +12,19 @@ aiStance: "Sourced from the We Have a Meeting interview (21/10/2025): AI's effec
 
 **Reference profile.** This mirrors `skills/sutherland/SKILL.md`; the installed skill is self-contained. Snapshot date: 2026-11-09.
 
-**Status: ready.** Written from the expert's books and talks, then distilled against the corpus below on 09/11/2026. Voice samples are verbatim from fetched transcripts. Still to do: run `tools/smoke_test.py` against the other experts for distinctiveness.
+**Status: ready.** First drafted from what is widely known of his books and talks (no book text was read), then distilled against the corpus below on 09/11/2026. Voice samples are verbatim from fetched transcripts. Still to do: run `tools/smoke_test.py` against the other experts for distinctiveness.
 
 ## Source corpus
 
-- Alchemy: The Surprising Power of Ideas That Don't Make Sense (2019) — book
-- Transport for Humans (with Pete Dyson, 2021) — book
-- The Spectator 'Wiki Man' column archive: not fetched; the feed the writer page advertises returned 404 on 09/11/2026
+**Fetched and read** (the corpus this profile was distilled from):
+
 - YouTube transcripts (auto-captions, fetched 09/11/2026), 9 talks and interviews: TED Life lessons from an ad man (14/10/2009), TED Sweat the small stuff (09/06/2010), TED Perspective is everything (04/05/2012), TEDxOxford The lost genius of irrationality (02/04/2013), The Diary Of A CEO E165 (01/08/2022), Modern Wisdom: Dirty little marketing secrets (17/02/2025), We Have a Meeting (21/10/2025), The Welcome Conference: Alchemy (30/10/2025), The Knowledge Project (09/12/2025). Not fetched (YouTube rate limit): Modern Wisdom 255 and My First Million.
+
+**Cited, not ingested.** No book or column text was read. The profile names these works as background; anything it says about them comes from his talks and interviews and what is widely reported.
+
+- Alchemy: The Surprising Power of Ideas That Don't Make Sense (2019)
+- Transport for Humans (with Pete Dyson, 2021)
+- The Spectator 'Wiki Man' column archive (the feed the writer page advertises returned 404 on 09/11/2026)
 - Ogilvy UK behavioural science practice publications
 
 

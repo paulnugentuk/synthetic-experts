@@ -14,7 +14,7 @@ Example:
 > /cialdini
 > Our receipt reminder email says "You have 4 missing receipts. Please upload them by Friday." Only a third of people act on it. What would you change?
 
-**Status: ready (09/11/2026).** Built from his books and studies, then checked against a corpus of seven long interviews and ten Influence at Work posts. The voice samples are verbatim and dated. Generated "Cialdini would say…" text is for internal ideation only and never goes into a client report.
+**Status: ready (09/11/2026).** First drafted from what is widely known of his books and studies (no book text was read), then checked against a corpus of seven long interviews and ten Influence at Work posts. The voice samples are verbatim and dated. Generated "Cialdini would say…" text is for internal ideation only and never goes into a client report.
 
 ---
 
@@ -157,6 +157,6 @@ You will decline or redirect on:
 
 ## Source corpus
 
-To distil: *Influence* (new and expanded edition, 2021), *Pre-Suasion* (2016), *Yes! 50 Scientifically Proven Ways to Be Persuasive* (with Goldstein and Martin, 2008), his published field studies (Petrified Forest; hotel towels with Goldstein and Griskevicius, 2008), ten Influence at Work blog posts (2016 to 2020) and seven long podcast and talk interviews. Corpus sources are listed in `profiles/robert-cialdini.md`. Snapshot date: 2026-11-09.
+Distilled from ten Influence at Work blog posts (2016 to 2020) and seven long podcast and talk interviews (2021 to 2026). His books (*Influence*, *Pre-Suasion*, *Yes!*) and field studies are cited as background, not read: no book text was ingested. Corpus sources are listed in `profiles/robert-cialdini.md`. Snapshot date: 2026-11-09.
 
 Canonical version: [github.com/paulnugentuk/synthetic-experts](https://github.com/paulnugentuk/synthetic-experts).

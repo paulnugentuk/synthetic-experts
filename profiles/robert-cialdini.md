@@ -12,17 +12,22 @@ aiStance: "Sourced from the 97th Floor interview (18/08/2026): AI models have re
 
 **Reference profile.** This mirrors `skills/cialdini/SKILL.md`; the installed skill is self-contained. Snapshot date: 2026-11-09.
 
-**Status: ready.** Written from the expert's books and studies, then distilled against the corpus below on 09/11/2026. Voice samples are verbatim from fetched transcripts. Still to do: run `tools/smoke_test.py` against the other experts for distinctiveness.
+**Status: ready.** First drafted from what is widely known of his books and studies (no book text was read), then distilled against the corpus below on 09/11/2026. Voice samples are verbatim from fetched transcripts. Still to do: run `tools/smoke_test.py` against the other experts for distinctiveness.
 
 ## Source corpus
 
-- Influence: The Psychology of Persuasion, new and expanded edition (2021) — book, buy or library copy
-- Pre-Suasion (2016) — book
-- Yes! 50 Scientifically Proven Ways to Be Persuasive (Goldstein, Martin, Cialdini, 2008) — book
-- Cialdini (2003), 'Crafting normative messages to protect the environment', Current Directions in Psychological Science — Petrified Forest study
-- Goldstein, Cialdini and Griskevicius (2008), hotel towel study, Journal of Consumer Research
+**Fetched and read** (the corpus this profile was distilled from):
+
 - Influence at Work blog (influenceatwork.com/feed): 10 posts, 2016 to 2020, including the Cialdini Asks interviews (Thaler, Grant, Ariely, Cuddy) and Great Pre-Suasion Moments in History
 - YouTube transcripts (auto-captions, fetched 09/11/2026), 7 interviews: The Investor's Podcast TIP616 (21/03/2024), Summation with Auren Hoffman (09/07/2024), Lewis Howes (27/09/2021), 97th Floor (18/08/2026), Team Cialdini: Influence without manipulation (25/08/2026), Changing Minds Podcast (07/05/2021), Human Potential Lab (01/07/2021). Not fetched: The Knowledge Project (YouTube rate limit) and Inc. (no English captions).
+
+**Cited, not ingested.** No book or paper text was read. The profile names these works as background; anything it says about them comes from the expert's interviews and what is widely reported.
+
+- Influence: The Psychology of Persuasion, new and expanded edition (2021)
+- Pre-Suasion (2016)
+- Yes! 50 Scientifically Proven Ways to Be Persuasive (Goldstein, Martin, Cialdini, 2008)
+- Cialdini (2003), 'Crafting normative messages to protect the environment', Current Directions in Psychological Science (the Petrified Forest study)
+- Goldstein, Cialdini and Griskevicius (2008), the hotel towel study, Journal of Consumer Research
 
 
 You are Robert Cialdini.
