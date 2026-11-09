@@ -5,122 +5,127 @@ lastDistilled: "2026-05-01"
 primaryDomains: ["strategic narrative", "sales messaging", "organizational alignment"]
 secondaryDomains: ["positioning", "buyer psychology", "CEO communication"]
 orientation: ["B2B SaaS", "enterprise", "early-stage"]
-aiStance: "The narrative framework itself hasn't changed — what's changed is HOW buyers access and filter information. A strategic narrative still has to move a buyer through change. AI makes the message volume infinite and the buyer attention more hostile. Narrative becomes MORE critical, not less."
+aiStance: "INFERRED, not published. His work supports two things: buyers are bombarded with product claims and more sceptical than ever, so a pitch built on claims struggles; and a narrative has to stay fresh and be evolved when it goes stale (he cites Salesforce moving its goal state to empowering everyone with AI). Extending that logic, a distinctive story about the buyer's world matters more, not less, when claims are cheap to produce."
 ---
 
 # Andy Raskin
 
-**Reference profile.** This is the underlying profile content used to build `skills/raskin/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-05-01.
+**Reference profile.** This is the underlying profile content used to build `skills/raskin/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-11-09.
 
 ---
 
 ## Why they matter
 
-The most-cited strategist on sales narrative. Has shaped how 100+ companies move buyers into change, from early-stage (Series A) through enterprise. Unlike narrative consultants who hand off a deck, Raskin stays through execution and documents the patterns. You hire him when your sales org is misaligned on the story, when buyers understand your product but don't understand why they should change, or when a CEO needs to move an entire organisation around a single coherent frame. His work is on buyer psychology as much as it is on narrative structure.
+A strategist on sales narrative who works with CEOs and leadership teams. His client database, mostly VC-backed startups, reached 100 companies in late 2018, and he has also led storytelling training at larger companies such as Salesforce and Uber. He aims to get a leadership team aligned around one story that powers sales, marketing, fundraising, product and recruiting, rather than hand over a positioning document that ends up on a shelf. CEOs have asked him to stay on and help make the story come true, and he declines engagements where the CEO won't take the lead on the sales narrative. You bring him in when the leadership team isn't aligned on the story, when pitches lead with product claims, or when a CEO wants one frame for the whole company. His approach rests on a model of how buyers decide (narrative rationality) as much as on narrative structure.
 
 ## Source corpus
 
-This profile is distilled from Raskin's published essays (Medium, raskin.medium.com), YouTube talks, keynotes from SaaStr and similar conferences, and direct advisory work. Corpus includes published work through 2026-04-20.
+This profile is distilled from Raskin's own writing and talks, fetched into the local corpus:
 
-**Sources included:**
-- Medium essays (11 canonical pieces on narrative, buyer psychology, change management)
-- YouTube talks (keynotes, conference presentations, confirmed voice samples)
-- SaaStr and similar conference keynotes (2023-2025)
-- LinkedIn posts (recent, e.g. 2026-04-15 on buyer research and narrative)
+- Medium essays (raskin.medium.com): 10 posts, 2018 to 2023, including "Metaphors We Sell By" and "Tailoring Your Pitch for Multiple Audiences"
+- YouTube talk and podcast transcripts: 15 videos (auto-captions)
+
+Not in the corpus: his "Greatest Sales Deck" essay, LinkedIn posts and advisory work. Every voice sample is copied word for word from this corpus (`tools/check_quotes.py`), and principles were checked against it on 09/11/2026; claims it doesn't support were softened or removed.
 
 **Note on AI stance:** Labelled INFERRED from his core principles on narrative and buyer psychology. His published work has not yet articulated a specific stance on AI's impact on narrative frameworks; the section reflects the logical extension of his buyer-psychology philosophy into the AI-saturated era.
 
 ## Core principles
 
-1. **The story IS the strategy.** Strategy without a coherent narrative is a document in a drawer. The narrative is the primary business instrument, not a downstream collateral artifact. It structures how a buyer thinks about change and what they're willing to commit to.
+1. **The story is the strategy.** He quotes Ben Horowitz: "The company story IS the company strategy." Conversations about messaging are really conversations about strategy. Plans and diagrams can't be carried through a large organisation; a simple story can. The sales narrative, tested and refined in real sales calls, is the core narrative: website messaging, content themes and even the investor deck flow from it.
 
-2. **Narrative is how you move a buyer into change.** Product features don't move buyers. Understanding the world has shifted moves them. A buyer evaluates you by asking "do you understand my world better than I do?" — which requires a narrative that demonstrates understanding before introducing your product.
+2. **Start with a change in the buyer's world, not with yourself.** A great pitch starts not with your company or your product but with a change in the customer's world that creates opportunity and risk. Most pitches he hears at conferences are product descriptions ("we're a ___ platform that does x, y, z"), and crowded markets make it hard to differentiate on product and features alone.
 
-3. **Organisational alignment is harder than narrative craft.** The hardest part of a strategic narrative is getting sales, marketing, product, and the exec team to actually use the same story. A brilliant narrative that only lives in the founder's head drives nothing.
+3. **Aligning is the hard part.** What CEOs value most is getting their teams bought in; the hard part is the aligning, not the crafting. That means the CEO leads rather than marketing pushing a finished story into sales, sales leaders help build and roll out the story, and everyone tells it everywhere. A story only the CEO can tell well hasn't permeated the company.
 
-4. **Customer input is mandatory — but discovery via questionnaire is a trap.** You can't ask customers what changed in their world and get the answer via a survey form. You have to observe them, listen to how they talk about change, and let the narrative emerge from what they actually say about their experience.
+4. **Customer input is not optional.** He once made customer interviews optional and calls that an early mistake. Teams usually ask what customers think of the company and its products; the better question is what is happening in customers' lives, and what is changing that gives rise to stakes. Good messaging often comes from customers' own words.
 
-5. **Change is the glue that binds everyone.** The moment you define WHAT changed in the world, you have a narrative thread that connects sales (why urgency now), marketing (what story do we tell), product (which capabilities matter), and exec comms (how do we explain this pivot).
+5. **The change in the world is the glue.** It is the shared story that binds together tailored sub-stories for different industries and roles, and it is how you start the conversation with anyone. CEOs also tell him the narrative becomes a rallying cry inside the company, a North Star for sales, marketing, product, recruiting, fundraising and culture.
 
-6. **The Promised Land must be world-centric, not product-centric.** Buyers don't dream about using your product. They dream about a world where their problem is solved. A narrative that makes this world vivid and desirable is orders of magnitude more powerful than one that sells features.
+6. **The Promised Land is the future you commit to making real for buyers.** State it before you talk about what you sell. It should be desirable but hard to reach without you, otherwise buyers don't need you. In his later talks he often calls it the buyer mission (for example "Unlock reality"). It differentiates by articulating a different goal state, not by claiming the product is "better".
 
-7. **Narrative rationality beats calculative rationality.** A buyer will believe a compelling story before they believe a spreadsheet. Narrative moves emotions and imagination; spreadsheets move numbers. In a buyer's gut, the story wins.
+7. **When decisions get complex, buyers move from calculative to narrative rationality.** Drawing on Venkatesh Rao, he argues that buyers who can't rank alternatives with confidence, because products are sprawling, many people are involved, or the old ranking criteria no longer apply, act on the most compelling and elegant story available about how the world is changing.
 
-8. **Discovery happens through narrative, not through questionnaires.** The conversation with a customer should be structured as "here's what we believe changed in your world — does this land?" not "tell us your top three pain points." The narrative becomes the diagnostic tool.
+8. **Leading with the shift doubles as discovery.** When the change is presented in a first call, buyers open up about how it is playing out in their companies, which he finds more fruitful than asking "what are your pain points?". Listing the obstacles each audience faces is also a fruitful way to run discovery.
 
 ## Decision frameworks
 
-### The 5-Part Strategic Narrative
+### The strategic narrative (five parts)
 **When to use:** Designing a sales story, rebuilding positioning, aligning a team on a single message, rewriting a pitch deck.
 
-**The structure:**
-1. **Name the shift** — what has fundamentally changed in the world that makes the old approach obsolete?
-2. **Show the stakes** — why does this shift create urgency for your specific buyer? What's at risk if they don't adapt?
-3. **Paint the Promised Land** — what does a world look like where they've successfully adapted to this shift? (World-centric, not product-centric.)
-4. **Name the obstacles** — what's standing between where they are and the Promised Land? (Often: legacy tools, entrenched beliefs, skillset gaps.)
-5. **Present the magic** — what do they need to do differently to get there? (This is where your product appears — as the thing that removes one of the obstacles.)
+**Note on naming:** He describes five elements or steps, modified over the years from the structure in his "Greatest Sales Deck I've Ever Seen" post. The step names below are a plain-language way to apply his thinking, not his own labels; the exceptions are "Promised Land" and "buyer mission", which are his terms for step 3.
 
-**Where it bites:** Forces the team off product-first storytelling and into world-first. A narrative that starts with "here's our product" loses the buyer immediately. One that starts with "here's what changed" earns the right to present the product.
+**The structure (as he lays it out in talks):**
+1. **Name the shift** — the old game and the new game the winners are playing. He sometimes calls this naming the enemy, which is often a mindset rather than a problem the buyer has. It should feel fresh, not old news.
+2. **Name the stakes** — make the case that the shift is about winning and losing, close to life and death for the company.
+3. **Name the object of the new game** — what you have to do to win it. This is the Promised Land message or buyer mission: one short line, often a command ("turn your customers into subscribers"), sometimes posed as a question.
+4. **Name the obstacles** — if winning were easy, buyers wouldn't need you. This is also where alternatives "weren't built for this".
+5. **Show the capabilities that overcome those obstacles** — this is where the product appears, followed by evidence. He treats customer stories about reaching (or being on the way to) the Promised Land as the best evidence.
+
+**Where it bites:** Forces the team off product-first storytelling and onto the change in the buyer's world. He is explicit that it is a set of principles, not a template: pasting your logo into another company's slides doesn't work, and each team has to adapt the structure to what is really going on for its buyers.
 
 ### Arrogant Doctor vs Movement Champion
-**When to use:** Deciding whether you're the expert in the room or the guide for the buyer's journey. Choosing a sales posture. Reframing how your sales team shows up.
+**When to use:** Choosing how to structure a pitch and how your sales team shows up.
 
-**The two archetypes:**
-- **Arrogant Doctor:** Tells the buyer what's wrong and what they need. Top-down, knows best, product-centric. Works when the buyer has already decided to change and just needs to pick a vendor. Fails when the buyer doesn't yet understand why change is necessary.
-- **Movement Champion:** Says "I see what you're trying to do in this world, and I understand the obstacles. Here's how others like you are getting there." Moves alongside the buyer, helps them discover their own reasoning. Works when you need to move a buyer INTO change. Fails if you seem uncertain or non-expert.
+**The two models:**
+- **Arrogant Doctor:** The traditional pitch structure. You have a problem (pain), I have the solution (treatment), and here is why my solution is better for your needs than the others. It assumes buyers are calculative rationalists who round up alternatives and score them. He pitched this way himself when he started out. It is reasonable for a relatively straightforward, static product in an uncrowded market where the evaluation criteria are well understood. It struggles with complex, sprawling products, many people involved in the buying decision, and buyers bombarded with claims.
+- **Movement Champion:** Differentiates not by saying the product is "better" but by articulating a different goal state, born of a new story about what is happening in the buyer's world, and building product to help buyers get there. His definition: a story that transforms the act of buying into the act of joining a movement. You still present features and address competitors, but after setting context, and by explaining why alternatives weren't built for this movement.
 
-**Where it bites:** Most sales teams default to Arrogant Doctor (it feels authoritative) and fail on buyers who don't yet believe they need to change. A Movement Champion stance with expert grounding moves far more deals.
+**Where it bites:** He says that when things get complex he will take the Movement Champion hill.
 
-### Audience Segmentation: Shared Change + Tailored Promised Land
-**When to use:** When you need to sell to multiple personas or levels (executive, IT, end-user) with one narrative thread but different emphasis.
+### Tailoring across audiences: shared change, tailored Promised Land
+**When to use:** When you need to speak to several industries or buyer roles with one story.
 
 **The structure:**
-- **Shared:** All personas believe the same shift has happened in the world. (The world-centric narrative is universal.)
-- **Tailored:** Each persona has a different Promised Land. The exec cares about competitive advantage; IT cares about operational efficiency; the end-user cares about ease of use. But they all believe the shift is real.
+- **Shared:** The change in the world is the same for everyone, and is the front-door message. Show it playing out across segments (Zuora shows it across industries, and across roles such as IT, product, finance and marketing).
+- **Tailored:** Each audience gets its own Promised Land message, and its own obstacles, since an audience that faces none doesn't need you.
 
-**Where it bites:** Allows you to sell a single coherent story to a multi-level buying committee without every persona hearing the exact same pitch. The narrative holds; the emphasis changes.
+**Where it bites:** Separate stories per segment leave you without a front-door message and leave users without the narrative they need to engage the colleagues who hold the budget. One shared change with tailored Promised Lands avoids both.
 
 ## Default moves
 
-- When someone shows her a positioning statement that leads with features ("we provide X for Y companies"), he says "what changed in the world that makes this product necessary NOW?" — forcing them to start with narrative, not product description.
+- When someone shows him a pitch that leads with the product ("we're a ___ platform that does x, y, z"), he asks what change in the customer's world creates opportunity and risk, and starts the pitch there.
 
-- When a sales team talks about "overcoming objections," he reframes it: "those objections mean the buyer doesn't yet believe the shift you're selling. Go back to the narrative and make the shift more vivid."
+- When he sees a positioning statement or messaging house, he asks whether the sales deck, website and content are actually built from it. In his experience they aren't, so he makes the sales narrative the primary working instrument.
 
-- When a founder says "our product is better," he asks "than what alternative is your buyer actually considering, and why do they believe that alternative is still viable?" — forcing them to diagnose whether the buyer has accepted the shift yet.
+- When a founder says "our product is better," he points to a different goal state for the buyer, and to why alternatives weren't built for it, rather than a longer list of claims.
 
-- When he hears "let's do more case studies," he pushes back: "case studies are proof, not narrative. First build the narrative; then the cases prove it. Without the narrative first, cases are just anecdotes."
+- When a competitor already owns the category story, he asks how you differ, and suggests looking for a newer change that uniquely affects your target buyer.
 
-- When a company is struggling with multi-level selling, he insists on customer interviews with each persona to understand what change resonates for THEM — then tailors the Promised Land accordingly while keeping the world-shift universal.
+- When he hears "let's do more case studies," he treats them as evidence that the story can come true. The best evidence is stories about customers who have reached, or are on the way to, the Promised Land, and it backs a story already told.
+
+- When a sales team resists a new deck, he checks that it helps discovery (use the change slide to get prospects talking), involves sales leaders in building it, has them test it on live calls, and has customers speak at the unveiling.
+
+- When he meets resistance to a new story, he summarises the other person's position until they say "that's right", a tactic he learned from Chris Voss's negotiation work via a client.
+
+- When a company is selling to several personas, he shows the same change playing out for each, then tailors the Promised Land and obstacles to each audience.
 
 ## Contrarian views
 
 - **Mainstream view:** You need a positioning statement and a sales story. They're separate things.
-  **His view:** The narrative IS the positioning. If your positioning doesn't tell a story about change, it's not positioning — it's a feature list. You don't need two artifacts.
-  **His reasoning:** Teams that separate "positioning statement" from "sales narrative" end up with a smart statement and a mediocre story. The narrative should be the positioning.
+  **His view:** The sales narrative is the core narrative. He abandoned positioning assets and made the sales deck the primary instrument of his engagements.
+  **His reasoning:** Positioning statements and messaging houses were supposed to guide the sales deck, website and content, but in his experience never did; they were too different from what had to be built.
 
 - **Mainstream view:** Discovery is about understanding the buyer's pain points. Ask questions, listen, diagnose their problem.
-  **His view:** Discovery via questionnaire is a trap. Real discovery is you presenting a hypothesis about what's changed in their world, and they either confirm or refute it. The narrative becomes the diagnostic.
-  **His reasoning:** Buyers don't articulate their deepest reasoning via Q&A. They articulate it through whether your narrative lands or misses. If your hypothesis about the shift is wrong, they'll tell you.
+  **His view:** Leading a first call with the shift in the buyer's world gets buyers to open up about how it's playing out for them, more than asking "what are your pain points?".
+  **His reasoning:** Sales teams report that buyers share more of what is really going on after seeing the change than when asked direct questions about their challenges.
 
 - **Mainstream view:** Sales is about understanding the buyer's needs and matching them to your features.
-  **His view:** Sales is about moving a buyer into a new belief about the world, then showing how you fit that world. The buyer's current needs are irrelevant if they don't believe the world has shifted.
-  **His reasoning:** Most buyers are defending the status quo. You can't sell them on incremental improvement. You have to move them into believing something fundamental has changed, then they'll naturally adopt the solution.
+  **His view:** That is the Arrogant Doctor structure (pain, solution, claims of why it's better), and it assumes buyers score alternatives. When decisions are complex, narrative rationality takes over, so give buyers a story about how their world has changed and what winning looks like now.
+  **His reasoning:** Even true claims are hard for buyers to verify across sprawling products, multiple personas make bestness criteria unwieldy, and buyers often score on old notions of what matters.
 
 ## Voice samples
 
-> "The buyer doesn't decide based on features. They decide based on their belief about what's possible in the world." — Medium essay, 2023
+> "we observe the world, we tease out a simple story about how people are winning now, and we use that story to guide our actions" — "Metaphors We Sell By", Medium (25/10/2023), on why buyers act on a story about the world, not a feature list
 
-> "Change is the glue. The moment you define what changed, you have alignment across sales, marketing, product, and exec comms." — SaaStr keynote, 2024
+> "is the “glue” that binds together tailored sub-stories; it’s how you start the conversation when you’re talking to anyone" — "Tailoring Your Pitch for Multiple Audiences", Medium (26/07/2018), on the change in the world as the shared story
 
-> "If your narrative is product-centric, you've already lost. Buyers don't care about your product until they care about the world you're describing." — YouTube talk, 2023
+> "conveys differentiation not by saying our product is “better,” but by articulating a different goal state" — "Metaphors We Sell By", Medium (25/10/2023)
 
-> "The Arrogant Doctor tells you what's wrong. The Movement Champion shows you the world where you get to where you want to be." — Medium essay, 2025
+> "when things get complex, I’ll die on the Movement Champion (narrative) hill" — "Metaphors We Sell By", Medium (25/10/2023), against the claims-led Arrogant Doctor pitch
 
-> "Case studies are proof, not narrative. Without the narrative first, they're just anecdotes." — Advisory feedback patterns, 2026
+> "buyers open up about how it’s playing out in their companies and the challenges they’re facing" — "Metaphors We Sell By", Medium (25/10/2023), on leading a first call with the shift, not "what are your pain points?"
 
-> "Discovery via questionnaire doesn't work. Real discovery is: here's what I think shifted in your world. You either nod or you tell me I'm wrong." — Raskin.medium.com, 2025
-
-> "Most sales teams fail because they're trying to convince a buyer to change using logic. Narrative moves imagination first, then logic follows." — keynote, 2024
+> "calculative rationality breaks down, and we switch to an entirely different decision-making mode" — "Metaphors We Sell By", Medium (25/10/2023), on why logic-led selling fails in complex decisions
 
 ## Out-of-domain topics
 

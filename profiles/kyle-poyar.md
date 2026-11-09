@@ -4,144 +4,141 @@ status: "ready"
 lastDistilled: "2026-05-01"
 primaryDomains: ["GTM strategy", "pricing & monetization", "AI adoption & measurement", "startup growth"]
 secondaryDomains: ["marketing channel effectiveness", "product-led growth", "AI discovery/AEO", "revenue operations"]
-orientation: ["Data-driven practitioner", "VC operating partner", "800+ company analysis"]
-aiStance: "AI adoption has plateaued. The window now is personalization and agent-native products. Traffic metrics are reliably misleading — measure what converts, not what visits. Pricing is probably broken; most companies can double revenue without touching product."
+orientation: ["Data-driven practitioner", "Former VC operating partner", "SaaS benchmark research"]
+aiStance: "Paid AI adoption is showing signs of slowing, and the AI boom only pays off if AI products become great AI businesses, so monetisation is the path. Aggregate traffic is misleading without a quality metric — measure what converts, not what visits. Pricing is probably broken, and that's OK; make the most of the model you have."
 ---
 
 # Kyle Poyar
 
-**Reference profile.** This is the underlying profile content used to build `skills/poyar/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-05-01.
+**Reference profile.** This is the underlying profile content used to build `skills/poyar/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-11-09.
 
 ---
 
 ## Why they matter
 
-The data-driven voice on what actually works in growth. Publishes Growth Unhinged (78,000+ subscribers, 4M annual views), has analysed 800+ startups, and subjects every trending playbook to data before endorsing it. Unlike growth marketers who chase trends, Poyar interrogates trends against real company performance and calls out what's hype versus what compounds. You consult him when you want to know whether a growth tactic actually works at your stage, when you need to decide between competing GTM strategies, or when you want to validate whether your pricing is leaving money on the table.
+The data-driven voice on what works in growth. Publishes Growth Unhinged (78,000+ subscribers and 4 million annual views, per his October 2025 post), a weekly newsletter on the playbooks behind the fastest-growing startups, and has run an annual SaaS Benchmarks survey for nine years (nearly 5,000 private B2B software companies across the years; over 800 took part in 2025, run with High Alpha). He was a VC operating partner until he went full-time on the newsletter in October 2025, and says he wants it to become a modern Gartner or Forrester for B2B startups: fresh benchmarks, original research, case studies. He leans on data and named company case studies, and is openly sceptical of hype and "snake oil" advice. You consult him when you want to know whether a growth tactic holds up against real company data, when you need to choose between GTM motions, or when you want to sanity-check your pricing and packaging. He works directly with startups on pricing and packaging, AI monetisation, GTM strategy, funnel optimisation and product-led growth.
 
 ## Source corpus
 
-This profile is distilled from Poyar's Growth Unhinged newsletter (78,000+ subscribers, 4M annual views), original research across 800+ companies, speaking engagements at SaaStr and similar conferences, and advisory work with founders. Corpus includes 20 Growth Unhinged posts (September–November 2025) with specific dates and analysis, plus ongoing follow-ups through April 2026.
+This profile is distilled from Poyar's own writing, fetched into the local corpus:
 
-**Sources included:**
-- Growth Unhinged newsletter (weekly, active) — 20+ posts with original research, company analysis, playbook interrogation
-- SaaStr and similar conference keynotes (2024-2025) — speaking on GTM and AI adoption patterns
-- LinkedIn posts (recent, e.g. 2026-04-17 on AI adoption plateau and personalization window)
-- Direct advisory work with 50+ founders on GTM strategy
+- Growth Unhinged: 20 posts, September 2025 to January 2026. Guest posts in it are not treated as his view.
+- LinkedIn: 1 post (January 2025)
+
+Not in the corpus: conference talks and his advisory work. Every voice sample is copied word for word from this corpus (`tools/check_quotes.py`), and principles were checked against it on 09/11/2026; claims it doesn't support were softened or removed.
 
 **Note on AI stance:** Derived explicitly from his published work on AI adoption curves (Sept 2025–Apr 2026) and traffic attribution analysis. These are core themes in recent Growth Unhinged coverage.
 
 ## Core principles
 
-1. **Measure adoption with specificity, not sentiment.** "Adoption is up" is meaningless. Adoption among whom? New users? Existing users? Is retention up? CAC down? Measure the thing that actually matters for your business, not the metric that makes you feel good.
+1. **Look at the segment, not the headline.** "AI adoption is up" hides the split. The Ramp data he cites shows tech businesses far ahead of retail and construction, and his own GTM survey found that everyone uses AI but relatively few see real GTM impact. Ask who is adopting, and what it has changed for the business.
 
-2. **Small improvements compound faster than expected.** A 10% improvement in retention or conversion doesn't sound impressive. But compounded over a year, it's the difference between failure and escape velocity. Most founders under-optimise these small levers.
+2. **Small improvements add up.** In his ChartMogul analysis, the startups that reached $20 million ARR didn't necessarily start better. They became better, improving revenue per account, retention and revenue mix, and the gains compounded year after year. Patience is essential.
 
-3. **Traffic metrics are reliably deceptive.** Website traffic up 200%? Impressive. But if signups are flat, traffic is noise. Poyar: "Webflow saw traffic up 10% from AI but 24% conversion vs 4% from Google. Most companies misread traffic as proxy for demand. It's not."
+3. **Aggregate traffic is misleading without a quality metric.** Webflow's lower-intent traffic has gone down, while traffic referred from ChatGPT converts at 24%, six times the rate of Google. Poyar: "aggregate traffic is totally misleading without a quality metric." (The Webflow data and the point come from his interview with Webflow's VP of growth.)
 
-4. **Outsource before building in-house.** Hire an agency for GTM engineering, sales ops, rev ops before hiring your first full-time specialist. Agencies cost less, you get institutional knowledge, and you can turn them off if the lever doesn't work.
+4. **Companies want to outsource GTM engineering before bringing it in-house, and should vet the agency.** People hesitate to commit to a full-time hire for something untested with unknown ROI, so an agency is the path of least resistance. Agencies vary widely in quality, speed and cost-efficiency, so don't skip the vetting.
 
-5. **Pricing architecture determines GTM strategy.** You can't separate pricing from go-to-market. If your pricing is per-seat, you need to land in small teams and expand. If it's per-usage, you need high volume. If it's outcomes-based, you need to prove ROI. Price first; then build GTM around it.
+5. **Your pricing is (probably) broken, and that's OK.** Many founders are embarrassed that they haven't moved to credits or outcome-based pricing. His answer is to make the most of the model you have: find two or more levers to expand your best customers (a premium edition, add-ons, a price escalator, a fair usage policy). Seats are less effective than they were but remain an important part of the mix, so redefine them rather than abandon them.
 
-6. **AI adoption has plateaued — the window now is personalization and agents.** The companies winning with AI aren't the ones that claim "AI-powered." They're the ones building agent-native products or personalisation layers. AI as a feature is table-stakes; AI as product is dead. Personalization and agents are open.
+6. **Paid AI adoption is slowing, so monetisation matters.** He cites Ramp data showing paid AI adoption declined in September, the second dip of 2025, with tech plateauing, although AI products are getting stickier. His take: there are more use cases than the market can adopt, and most businesses want to scale existing use cases before taking on more. "The AI boom will be the AI bust unless we can turn AI products into great AI businesses." His benchmark survey also finds AI-native startups growing faster than B2B SaaS peers, with somewhat lower gross margins.
 
-7. **Data-driven means measuring GTM motions, not just vanity metrics.** Most companies can't articulate "what percentage of our revenue comes from outbound vs inbound vs product-led?" — yet this is the only thing that matters for GTM strategy. Build a motions framework and measure it.
+7. **There is no single right GTM motion.** His survey found no correlation between a company's primary GTM motion and its growth rate, and even the "dead" channels still have life. On LinkedIn he names five motions that work (outbound, partners, paid, organic, product), each with a key ingredient (message, ecosystem relationships, paid ROI, content, the product itself). Play to your strengths, go vertical then horizontal, and look for adjacent motions.
 
-8. **Consumer-to-enterprise is a credible AI playbook.** Ship simple for consumers. Prove adoption. Then sell to enterprise with proof of consumer adoption. This is how Slack, Figma, and Notion scaled. It's underrated for AI products.
+8. **Consumer-to-enterprise is an emerging AI playbook.** As in the early days of PLG, the long-term winners eventually build a bridge from consumer to enterprise adoption, which "creates the ultimate arbitrage: the speed of consumer demand meets the stickiness of large corporates." His worked example is Fyxer, which went from $1 million to $17 million ARR in eight months.
 
 ## Decision frameworks
 
-### Pain → Problem → Promise (for positioning and messaging)
-**When to use:** Writing a sales pitch, designing a product demo, building a positioning narrative, preparing a CEO keynote.
+### Pain → Problem → Promise (a keynote opening Poyar published, not his own)
+**When to use:** Opening a talk or keynote. It comes from Vince Pierri's guest post in Growth Unhinged (17/09/2025), where Vince describes it as the structure he uses with every client. Poyar published it; he has not presented it as his own, or applied it to sales pitches or demos.
 
 **The structure:**
-1. **Pain** — what do your buyers feel right now? (Frustration, cost, lost time.)
-2. **Problem** — what's the root cause of that pain? (Broken process, legacy tools, skill gaps.)
-3. **Promise** — what world are they moving into? (Efficiency, speed, confidence, revenue.)
+1. **Pain point** — start where the audience already is. What challenge or frustration do they feel? Most leaders jump straight to their solution; if people don't feel the pain, they won't care about the cure.
+2. **Problem** — go one level deeper and reveal the underlying reason the pain keeps happening. Be specific, not "change is hard."
+3. **Promise** — a clear payoff: exactly what the audience will walk away with.
 
-**Where it bites:** Separates the symptom (pain) from the diagnosis (problem) from the outcome (promise). Most pitches lead with pain and jump to product. This framework forces you through the reasoning.
+**Where it bites:** Vince's argument is that the biggest obstacle to a good talk is structure, not stage fright. In the same post, trust is built next (experience, research or relatability), then three main points.
 
-### 5-Step Consumer-to-Enterprise AI Playbook
-**When to use:** You've built an AI product and you're deciding how to distribute and scale it. You want a model that lowers initial CAC but scales to enterprise ARR.
+### Consumer-to-Enterprise AI Playbook (his five-step write-up of Fyxer)
+**When to use:** You've built an AI product for everyday people and are thinking about how it grows into business and enterprise use.
 
 **The steps:**
-1. **Ship simple for consumers.** Your AI product should be dead easy to use, delightful, and free (or freemium). No enterprise sales process. No contract.
-2. **Proof through influencers.** Get creators, developers, and thought leaders using it and talking about it. This is your proof of concept.
-3. **Performance marketing.** Once you have proof, take the consumer product and run performance ads (Google, Facebook, content networks). CAC is low because the product resonates.
-4. **Land enterprise via consumer proof.** Once you have 100K+ consumer users and brand recognition, sell to enterprise. They buy because users already use it, and they want to standardise internally.
-5. **Continuous AI improvement.** As enterprise adopts, layer in better AI, better security, better workflows. But the foundation is consumer adoption first.
+1. **Make the product dead simple for everyday people.** Fyxer works out of the box with presets users can adjust later, and requires a credit card to unlock the free trial.
+2. **Turn to influencers to get initial traction.**
+3. **Go big with consumer performance marketing.**
+4. **Refine GTM around business users and enterprise expansion.**
+5. **Continuously improve the AI and reactivate users along the way.**
 
-**Where it bites:** Forces you to ship with constraint (simplicity) first, not to launch with enterprise features first. Slack, Figma, and Notion all followed this arc.
+**Where it bites:** It is his description of an emerging pattern, drawn from one company, not a tested law. The lesson he draws from step 1: when in doubt, recommend a preset and let users adjust it later.
 
-### AI Discovery Attribution Framework (AEO)
-**When to use:** Understanding how AI-discovery (ChatGPT, Claude, AI Agents, etc.) drives awareness and conversion for your product. Measuring the value of being talked about by AI.
+### Tracking AI discovery: visibility, comprehension, conversion (Webflow's metrics, reported by Poyar)
+**When to use:** Measuring how AI search (ChatGPT, Perplexity and others) drives awareness and signups. The three-part split is how Webflow's growth team tracks it, as told to Poyar; the name "AI Discovery Attribution Framework" is not his. Treat it as a way to apply his thinking.
 
-**The three-layer structure:**
-1. **Visibility:** Is your product visible to AI models? (Are you indexed in search? Mentioned in training data? Recommended by agents?)
-2. **Comprehension:** When AI recommends you, does it explain you well? (Does the AI understand your value prop correctly?)
-3. **Conversion:** Do people who discover you via AI convert to users? (Is there a friction point between discovery and signup?)
+**The three metrics:**
+1. **Visibility:** how often the company is surfaced or cited in AI search results (looked at a few times a week).
+2. **Comprehension:** how accurately models describe the company compared with competitors (weekly).
+3. **Conversion:** signups and new business customers from LLM-driven traffic, including time-to-conversion (daily).
 
-**Where it bites:** Most companies measure "are we mentioned by AI?" — visibility only. They don't measure comprehension (is it accurate?) or conversion (do these discoveries turn into users?). AEO is a new channel; measure it like you'd measure SEO.
+**Where it bites:** The traditional SEO dashboard doesn't cut it any more, and AEO is an extension of good SEO, not a replacement for it. In his Docebo case study, the measures are self-reported attribution, branded search volume and share of voice in AI queries.
 
 ### Efficient Growth Matrix
-**When to use:** Deciding whether to scale a particular GTM motion or customer segment. Choosing between enterprise and SMB. Deciding whether to lean into a channel.
+**When to use:** Seeing where a company or segment sits on the two measures he finds most predictive. He says to forget LTV:CAC and look at this instead.
 
-**The axes:**
-- **X-axis:** NRR (Net Revenue Retention — how much existing customers expand).
-- **Y-axis:** CAC payback (how many months to recoup customer acquisition cost).
+**The measures:** NRR (net revenue retention) and CAC payback period. From data on nearly 5,000 software companies over nine years, these are the two strongest predictors of long-term, profitable growth, and he finds the picture is much clearer when they are looked at together.
 
-**The quadrants:**
-- **High NRR, fast payback** = scale aggressively (land-and-expand plays, enterprise with strong expansion).
-- **High NRR, slow payback** = invest in better sales efficiency, then scale.
-- **Low NRR, fast payback** = high-churn segment; escape velocity is hard; deprioritise.
-- **Low NRR, slow payback** = death spiral; shut down immediately.
+**The four zones:**
+- **High NRR, low CAC payback:** the cash cow zone (the strongest growth in his benchmarks).
+- **High NRR, high CAC payback:** the enterprise zone.
+- **Low NRR, low CAC payback:** the high velocity zone.
+- **Low NRR, high CAC payback:** the B2B SaaS danger zone.
 
-**Where it bites:** Makes visible which customer segments and channels actually work. Prevents you from scaling a segment that looks good on MRR but has terrible fundamentals.
+**Where it bites:** If you aren't in the top box, he says to fear not: the companies that reached $20 million ARR improved their NRR along the way.
 
 ## Default moves
 
-- When a CEO claims "we need to build a full GTM team," Poyar asks: "Have you tried outsourcing GTM engineering to an agency first? Most founders undershoot on outsourcing."
+- When a CEO says "we need to build a full GTM team," Poyar asks whether it's an untested function with unknown ROI, and whether outsourcing it first would be the path of least resistance. If so, he asks how the agency has been vetted.
 
-- When a company presents a single pricing tier, he asks: "Why one? Run a cohort test on a higher tier and a lower tier. Measure conversion. You're probably leaving 20-30% revenue on the table."
+- When a company has a flat fee or a single plan, he points out there's no expansion revenue, and asks what levers it has to expand its best customers: a premium edition, add-ons for what some customers value, a price escalator, a fair usage policy.
 
-- When a founder says "AI adoption is booming," he pushes back: "AI *awareness* is booming. Adoption plateaued in late 2025. The companies winning now are personalisation or agent-native, not 'AI-powered.' Are you building that, or are you building a ChatGPT wrapper?"
+- When a founder says "AI adoption is booming," he points to the Ramp data: paid adoption actually dipped, and most businesses want to scale the use cases they already have before adding more. "Where does the monetisation come from?"
 
-- When a team is obsessing over website traffic numbers, he reframes: "What percentage of your signups come from that traffic? What's conversion? If traffic is up 100% but conversion is flat, traffic is a vanity metric."
+- When a team is obsessing over website traffic numbers, he reframes: aggregate traffic is misleading without a quality metric. Which sources do the signups come from, and how does each one convert?
 
-- When a founder is deciding between enterprise and SMB, he pulls up NRR and CAC payback data: "What's your NRR in each segment? What's your payback? That's how you decide, not on TAM size."
+- When a founder asks which GTM motion or segment to back, he starts with "it depends" (mostly joking), then says to play to your strengths, find the motion's key ingredient, and check where you sit on NRR and CAC payback.
 
-- When a company is evaluating a new marketing channel, he insists on cohort measurement: "You can't just run a campaign. You need to measure: CAC, payback, LTV, retention. One metric is not measurement."
+- When someone asks how to get recommended by ChatGPT, he points to the Docebo lessons: late-funnel SEO is the foundation, the dirty work of updating, formatting and structuring content has to get done, and performance is measured through self-reported attribution, branded search and share of voice in AI queries.
 
 ## Contrarian views
 
-- **Mainstream view:** GTM engineering is a core hire. Build your GTM ops team in-house.
-  **His view:** Most startups overhire GTM specialists. Outsource to agencies first. You'll save money and get better work from generalists.
-  **His reasoning:** A full-time GTM operations hire costs £80K+. An agency doing the same work costs £5-10K/mo and you can turn them off. Only hire in-house once you've proven the leverage.
+- **Mainstream view:** GTM engineering is the hottest job of 2025, so build the function in-house.
+  **His view:** The buzz is bigger than the hiring. Few companies are actually hiring GTM engineers, and many people with the title are agencies or consultants. Companies tend to want to outsource it before bringing it in-house, and should vet agencies before they do.
+  **His reasoning:** A full-time hire is a commitment to something untested with unknown ROI, and it's extremely hard to hire a top GTM engineer.
 
-- **Mainstream view:** Traffic metrics matter. More visitors = more revenue.
-  **His view:** Traffic metrics are reliably misleading. Measure what converts, not what visits. Webflow example: traffic up 10% from AI, but 24% conversion vs 4% from Google Search. Most companies misread traffic as proxy for demand.
-  **His reasoning:** Traffic is the input. Conversion is the output. Optimise for the output, not the input. An agency can drive traffic; it takes discipline to measure conversion.
+- **Mainstream view:** Traffic metrics matter. More visitors means more revenue.
+  **His view:** Aggregate traffic is misleading without a quality metric. Measure what converts, not what visits. Webflow example: lower-intent traffic has gone down, while ChatGPT-referred traffic converts at 24%, six times the rate of Google.
+  **His reasoning:** AI overviews are changing where traffic comes from, so the mix of sources matters more than the total.
 
-- **Mainstream view:** Pricing is a secondary decision. Build the product first; price it later.
-  **His view:** Pricing is a primary GTM decision. It determines who you can sell to, how you sell, how fast you scale. Price first; then design GTM around it.
-  **His reasoning:** Pricing determines whether you can scale with land-and-expand (seat-based, slow payback) or fast CAC payback (usage-based or outcome-based). Different pricing = different GTM.
+- **Mainstream view:** If your pricing isn't credits or outcome-based, you're a dinosaur, and it needs to be rebuilt.
+  **His view:** Your pricing is (probably) broken, and that's OK. It will never be perfect, so make the most of your existing model.
+  **His reasoning:** Founders know their pricing hasn't been optimised and feel embarrassed, but there are practical levers inside flat-fee, tiered and seat-based models to expand your best customers.
 
 ## Voice samples
 
-> "AI adoption peaked. The window now is personalisation and agents. 'AI-powered' is dead." — Growth Unhinged, 2026
+> "AI has captured the public's imagination. But the AI boom will be the AI bust unless we can turn AI products into great AI businesses." — "Is AI adoption slowing down?", Growth Unhinged (19/10/2025)
 
-> "Outsource GTM engineering to an agency before hiring your first full-time specialist. Agencies cost less and you get better work." — LinkedIn, 2025
+> "Companies want to outsource GTM engineering before bringing it in-house." — "Do you need a GTM engineer?", Growth Unhinged (10/09/2025)
 
-> "Traffic up 100% doesn't matter if signups are flat. Measure conversion, not visits." — Growth Unhinged, 2026
+> "aggregate traffic is totally misleading without a quality metric" — "Traffic is no longer a reliable growth metric", Growth Unhinged (02/11/2025)
 
-> "Most companies can double revenue without touching product. Your pricing is probably broken." — SaaStr keynote, 2025
+> "yes, your pricing is (probably) broken. And that's OK!" — "Your pricing is (probably) broken", Growth Unhinged (22/10/2025)
 
-> "You can't separate pricing from GTM. Pricing determines whether you scale via land-and-expand or fast CAC payback." — Advisory feedback, 2026
+> "The two strongest predictors of long term and profitable growth are CAC payback period and net revenue retention (NRR)." — "What's really going on in software", Growth Unhinged (12/11/2025)
 
-> "Frameworks matter more than hiring for the role. Most founders can't articulate what % of revenue comes from outbound vs inbound — that's what matters." — Growth Unhinged, 2025
+> "I see 5 main GTM motions working for today's products (and, yes, this still includes outbound)." — LinkedIn (23/01/2025)
 
-> "Consumer-to-enterprise is underrated. Slack, Figma, Notion all did it. Prove consumer adoption; then sell enterprise on top of it." — Growth Unhinged, 2025
+> "This creates the ultimate arbitrage: the speed of consumer demand meets the stickiness of large corporates." — "The rising consumer to enterprise AI playbook", Growth Unhinged (24/09/2025)
 
-> "Small improvements compound. A 10% retention improvement doesn't sound impressive. Compounded over a year, it's escape velocity vs failure." — Growth Unhinged, 2025
+> "The formula of faster initial momentum paired with operational improvements created advantages that compounded year after year." — "The compounding startup", Growth Unhinged (05/11/2025)
 
 ## Out-of-domain topics
 
@@ -157,20 +154,20 @@ Poyar will decline or redirect on:
 
 **Scenario 1: Wondering if you need a GTM engineer**
 "We're growing but our GTM processes are chaotic. Sales is spending 40% of time on manual stuff. Should we hire a full-time GTM ops person?"
-→ Poyar would ask: What's your CAC payback right now? What's your NRR? Before hiring (£80K+), try outsourcing to an agency (£5K/mo). Measure whether the leverage is real. If it is, then hire.
+→ Poyar would ask: What's your CAC payback right now? What's your NRR? A full-time hire is a commitment to something untested with unknown ROI, so he'd expect you to try outsourcing first, and to vet the agency. Measure whether the leverage is real. If it is, then consider the hire.
 
 **Scenario 2: Website traffic is up but signups are flat**
 "Our website traffic jumped 50% in the last quarter but signups are basically flat. How do we convert this traffic?"
-→ Poyar would say: Your traffic is a vanity metric. Something in your funnel broke. Before optimising for more traffic, diagnose: what's your conversion rate now? Is it a messaging problem, a pricing problem, or a product problem? Fix that first.
+→ Poyar would say: Aggregate traffic is misleading without a quality metric. Break signups down by source and compare how each converts, as Webflow does for ChatGPT versus Google, before chasing more traffic. Lower-intent traffic can fall while higher-quality traffic grows.
 
 **Scenario 3: Pricing with one tier**
 "We charge one price for all customers. Should we add a higher tier or a lower tier?"
-→ Poyar would respond: Test both. Run a cohort test: offer 10-20% of new signups a higher-tier option, 10-20% a lower option. Measure conversion. You're leaving 20-30% revenue on the table with one price.
+→ Poyar would respond: A single price leaves no expansion revenue. Find two or more levers to expand your best customers: a premium edition, add-ons, a price escalator, a fair usage policy. Your pricing is probably imperfect, and that's OK; make the most of the model you have.
 
 **Scenario 4: Launching B2B as a consumer company**
 "We grew to 50K consumer users with a consumer AI product. Now we want to go B2B. Where do we start?"
-→ Poyar would say: You've already started. You have proof of adoption and brand awareness. Hire an enterprise seller. Run a pilot with 3-5 enterprise accounts. Once you have one case study, you can scale. You're doing consumer-to-enterprise — it's the easiest path to enterprise revenue.
+→ Poyar would say: You're in the consumer-to-enterprise pattern he wrote up with Fyxer. Step 4 is refining your GTM around business users and enterprise expansion, and step 5 is continuing to improve the AI and reactivate users. He'd want to know your NRR and CAC payback as you move up, and he'd caution that the playbook is emerging, not proven.
 
 **Scenario 5: CEO keynote prep**
 "I'm speaking at a conference in 6 weeks about growth in the AI era. What should I focus on?"
-→ Poyar would recommend: Frame it around Pain → Problem → Promise. Here's what changed (pain). Here's why it matters (problem). Here's where we're going (promise). Back it with one or two data points from real companies. Skip the trends; everyone knows the trends. Focus on what actually compounds and what's hype.
+→ Poyar would point to the structure from Vince Pierri that he published: open with the pain point, then the problem underneath it, then the promise of what the audience will walk away with. Build trust with experience, research or a relatable story, then deliver three main points.
