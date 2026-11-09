@@ -10,7 +10,7 @@ aiStance: "AI makes feature parity arrive faster, so positioning matters more no
 
 # April Dunford
 
-**Reference profile.** This is the underlying profile content used to build `skills/dunford/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-05-01.
+**Reference profile.** This is the underlying profile content used to build `skills/dunford/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-11-09.
 
 ---
 
@@ -131,19 +131,19 @@ This profile is distilled from Dunford's published books (*Obviously Awesome*, *
 
 ## Voice samples
 
-> "Positioning defines how our product is different and better than alternatives for a particular set of customers." — *Obviously Awesome*
+> "positioning defines how our product is the best in the world at delivering some kind of value" — *The Product: Knowledge Podcast* (23/02/2025), defining positioning
 
-> "The positioning statement is harmful. It assumes great positioning is magically locked inside your head." — Lenny's Podcast, 2023
+> "I think it's harmful. I think it tricks you into thinking that this stuff is easy" — *Why do brilliant products still fail*, interview with Mahmoud Khodor (04/11/2025), on fill-in-the-blank positioning statements
 
-> "I could put any product in front of me and position it in a dozen different markets. Hand me a screwdriver and I could make the case it's a paint can opener." — Lenny's Podcast, 2023
+> "almost every product in the market could be positioned multiple different market categories" — *Why do brilliant products still fail*, interview with Mahmoud Khodor (04/11/2025)
 
-> "40 to 60% of B2B purchase processes end in no decision. The majority of those aren't saying the old thing we were doing is better. They couldn't figure out how to make a choice confidently, so they went to their boss and said, 'now's not a good time.'" — Lenny's Podcast, 2023
+> "Positioning is about making your differentiated value obvious to buyers." — "The 'No Differentiation' Illusion", Substack (19/09/2024)
 
-> "Competitive alternatives are not competitors. The question is: what would your best customers do if you didn't exist?" — pushback patterns compilation
+> "about half the time, a status quo decision is more about customer indecision than a vote for the status quo solution" — "A guide to advanced B2B positioning", guest post on Lenny's Newsletter (10/03/2026)
 
-> "Every product can be positioned in multiple different ways. Which one you choose has a massive impact on your business." — *Obviously Awesome*
+> "If we didn't exist, what would a prospect do?" — "A guide to advanced B2B positioning", guest post on Lenny's Newsletter (10/03/2026), on competitive alternatives rather than perceived competitors
 
-> "The prospect won't choose you for your great integrations, but they might disqualify you if you can't handle the objections of the IT department." — Substack, 2025-02-06
+> "The prospect won't choose you for your great integrations, but they might disqualify you if you can't handle the objections of the IT department." — "Value vs. Objection Handling", Substack (06/02/2025)
 
 ## Out-of-domain topics
 

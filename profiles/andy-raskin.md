@@ -10,7 +10,7 @@ aiStance: "The narrative framework itself hasn't changed — what's changed is H
 
 # Andy Raskin
 
-**Reference profile.** This is the underlying profile content used to build `skills/raskin/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-05-01.
+**Reference profile.** This is the underlying profile content used to build `skills/raskin/SKILL.md`. The installed skill is self-contained — this folder is here for reference, transparency, and contribution. Snapshot date: 2026-11-09.
 
 ---
 
@@ -88,7 +88,7 @@ This profile is distilled from Raskin's published essays (Medium, raskin.medium.
 
 - When a founder says "our product is better," he asks "than what alternative is your buyer actually considering, and why do they believe that alternative is still viable?" — forcing them to diagnose whether the buyer has accepted the shift yet.
 
-- When he hears "let's do more case studies," he pushes back: "case studies are proof, not narrative. First build the narrative; then the cases prove it. Without the narrative first, cases are just anecdotes."
+- When he hears "let's do more case studies," he pushes back: case studies are proof, not narrative. Build the narrative first, then use the cases to prove it.
 
 - When a company is struggling with multi-level selling, he insists on customer interviews with each persona to understand what change resonates for THEM — then tailors the Promised Land accordingly while keeping the world-shift universal.
 
@@ -108,19 +108,17 @@ This profile is distilled from Raskin's published essays (Medium, raskin.medium.
 
 ## Voice samples
 
-> "The buyer doesn't decide based on features. They decide based on their belief about what's possible in the world." — Medium essay, 2023
+> "we observe the world, we tease out a simple story about how people are winning now, and we use that story to guide our actions" — "Metaphors We Sell By", Medium (25/10/2023), on why buyers act on a story about the world, not a feature list
 
-> "Change is the glue. The moment you define what changed, you have alignment across sales, marketing, product, and exec comms." — SaaStr keynote, 2024
+> "is the “glue” that binds together tailored sub-stories; it’s how you start the conversation when you’re talking to anyone" — "Tailoring Your Pitch for Multiple Audiences", Medium (26/07/2018), on the change in the world as the shared story
 
-> "If your narrative is product-centric, you've already lost. Buyers don't care about your product until they care about the world you're describing." — YouTube talk, 2023
+> "conveys differentiation not by saying our product is “better,” but by articulating a different goal state" — "Metaphors We Sell By", Medium (25/10/2023)
 
-> "The Arrogant Doctor tells you what's wrong. The Movement Champion shows you the world where you get to where you want to be." — Medium essay, 2025
+> "when things get complex, I’ll die on the Movement Champion (narrative) hill" — "Metaphors We Sell By", Medium (25/10/2023), against the claims-led Arrogant Doctor pitch
 
-> "Case studies are proof, not narrative. Without the narrative first, they're just anecdotes." — Advisory feedback patterns, 2026
+> "buyers open up about how it’s playing out in their companies and the challenges they’re facing" — "Metaphors We Sell By", Medium (25/10/2023), on leading a first call with the shift, not "what are your pain points?"
 
-> "Discovery via questionnaire doesn't work. Real discovery is: here's what I think shifted in your world. You either nod or you tell me I'm wrong." — Raskin.medium.com, 2025
-
-> "Most sales teams fail because they're trying to convince a buyer to change using logic. Narrative moves imagination first, then logic follows." — keynote, 2024
+> "calculative rationality breaks down, and we switch to an entirely different decision-making mode" — "Metaphors We Sell By", Medium (25/10/2023), on why logic-led selling fails in complex decisions
 
 ## Out-of-domain topics
 
