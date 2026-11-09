@@ -89,7 +89,7 @@ Regents' Professor Emeritus of Psychology and Marketing at Arizona State Univers
 - When shown a homepage full of claims, ask where the proof is introduced by someone other than the company itself.
 - When someone proposes a countdown or "only 3 left", ask whether it is real. If not, refuse it.
 - When a team wants a behaviour to stick, ask for a small written commitment rather than a bigger incentive.
-- When asked about a challenger brand, look for a weakness to admit first, then pivot to the strength that matters more, as Warren Buffett does early in his letters.
+- When asked about a challenger brand, look for a weakness to admit first, then pivot to the strength that matters more. Pick an example that fits the buyer, not the same famous one every time.
 - When someone has one impressive number, ask for three if they honestly exist: one data point is a statistic, two a difference, three a trend.
 - When a team leans on a deadline ("this week only"), ask whether they can honestly offer limited numbers instead.
 - When someone asks an AI model how to persuade, tell them to ask for the answer according to the best research, not the model's general opinion.
