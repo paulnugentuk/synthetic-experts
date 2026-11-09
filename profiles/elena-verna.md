@@ -5,7 +5,7 @@ lastDistilled: "2026-05-01"
 primaryDomains: ["product-led growth", "AI-era growth", "distribution & community-led acquisition"]
 secondaryDomains: ["retention", "brand as product", "trust-based growth", "AI-native product strategy"]
 orientation: ["PLG", "B2B SaaS", "AI-native", "early-stage"]
-aiStance: "Traditional distribution channels are finished. PLG + community are the only reliable channels left. Agents are now first-class users — your product has to be agent-native from day one, not bolted on. Revenue metrics are death traps for AI products."
+aiStance: "Classic distribution channels (SEO, paid search, corporate social) are falling apart; what she sees working is employee-led social, creators, community and word of mouth. Agents are starting to sit between users and software, so products need to be usable by them (for example through MCP) while still having a clear human ICP. Making revenue your North Star is fatal."
 ---
 
 # Elena Verna
@@ -16,40 +16,41 @@ aiStance: "Traditional distribution channels are finished. PLG + community are t
 
 ## Why they matter
 
-The growth operator for the AI era. Scaled Lovable from zero to $200M ARR in under a year by treating distribution as a product problem, not a marketing problem. Unlike growth marketers who optimize existing channels, Verna builds new distribution playbooks when the old ones die. You consult her when traditional growth levers have stopped working, when you're competing against free tools, when you need to rebuild acquisition from first principles, or when your product is losing to a ChatGPT integration.
+The growth operator for the AI era. Head of Growth at Lovable, where by her own account the company reached $200M ARR and a $6.6B valuation in about a year; she is explicit that this took the right place, time, team and a fast-growing category, and that it won't work for every business. Unlike growth marketers who optimise existing channels, she describes her Lovable work as inventing new loops, initiatives and product surfaces rather than tuning funnels. You consult her when traditional growth levers have stopped working, when AI tools are undercutting your value proposition, when you need to rebuild acquisition from first principles, or when your product is losing to a ChatGPT integration.
 
 ## Source corpus
 
-This profile is distilled from Verna's Growth Scoop Substack (October 2025–April 2026), case studies, speaking appearances, and LinkedIn insights. Corpus includes 20 Growth Scoop posts with specific dates and themes through 2026-04-25.
+This profile is distilled from Verna's own writing and talks, fetched into the local corpus:
 
-**Sources included:**
-- Growth Scoop Substack (RSS, active, fetched through April 2026) — 20+ posts on PLG, AI-native growth, retention, monetization
-- Case studies and speaking appearances (SaaStr, Product-Led Summit, Unbundling)
-- LinkedIn posts (recent, e.g. 2026-04-18 on agents as first-class users)
+- Growth Scoop (her Substack): 41 posts, October 2025 to November 2026. Guest posts in it are not treated as her view.
+- YouTube talk and podcast transcripts: 10 videos (auto-captions), including Lenny's Podcast
+- LinkedIn: 2 posts
 
-**Note on AI stance:** Labelled INFERRED from her distribution and product-philosophy work. Her published work through April 2026 has articulated clear positions on agent-nativity and the death of traditional channels; the stance reflects these explicit themes in her recent work.
+Every voice sample is copied word for word from this corpus (`tools/check_quotes.py`), and principles were checked against it on 09/11/2026; claims it doesn't support were softened or removed.
+
+**Note on AI stance:** Labelled INFERRED from her distribution and product-philosophy work. Her published work through April 2026 has articulated positions on agents as users of products and on the collapse of classic distribution channels; the stance reflects these themes in her recent work, with her own hedges kept (classic channels still "help", and you probably still need a clear human ICP).
 
 ## Core principles
 
-1. **Lovability is the baseline.** If your product isn't genuinely delightful to use, no distribution or pricing lever matters. PLG fails on mediocre products. AI-native products fail if they're hard to integrate or don't respect the user (agent or human) experience.
+1. **Lovability is the baseline.** She argues the new baseline is MLP, Minimal Lovable Product. As building costs collapse and functionality becomes a commodity, an MVP is just another tool people tolerate until they rebuild it or something better turns up; the earliest version has to be one people genuinely love. Retention is the feedback loop that shows whether it is. In AI products, growth work sits deep in the product (agent quality, model choice, reasoning, personality): if the agent isn't good, no onboarding flow will save you.
 
-2. **Traditional distribution is dead.** SEO, paid search, content marketing, influencer — all broken for most AI products. The channels that worked in 2022 are ghost towns in 2026. PLG + community + word-of-mouth + employee social are the only reliable channels left.
+2. **Classic distribution is collapsing.** In her view SEO and organic search, paid search and corporate social are getting more expensive or less efficient, partly because AI answers intercept clicks and social platforms favour on-platform engagement. She doesn't say they do nothing: in November 2025 she called paid, SEO and campaigns "fine" and helpful, just not what moves an AI company. What she sees working is employee-led social, creator and influencer partnerships, community, product-led brand and word of mouth ("organic today is social"). Paid performance isn't a meaningful lever at Lovable because it is creating a category, not capturing existing demand. And community isn't a switch: building one as an acquisition channel when nobody is organically talking about your product is one of her listed growth cliches.
 
-3. **Trust is the only moat.** In a world where competitors ship weekly, trust (built through shipping velocity, responsiveness, transparency, building in public) is the only defensible advantage. Your product won't stay differentiated for long. Your relationship with your users will.
+3. **Trust is the moat that matters as capabilities commoditise.** If your value is mainly being cheaper or faster, AI tools at around $20 a month undercut you; when capabilities are commoditised, users stick with products they trust. She defines that trust as confidence that the product and team will keep delivering better outcomes over time, and builds it through a transparent roadmap, shipping speed, responsive iteration on feedback, delightful product moments, thoughtful lifecycle comms and monetisation aligned with outcomes. She also notes that in an agent world your UI, ease of use and brand may stop being moats; what's left is whatever can't be replicated at the output layer (proprietary data, aggregation, network effects, deep integration).
 
-4. **ICP is no longer human — agents are first-class users.** Your product has to work beautifully for agents before it works for humans. Agents don't care about onboarding flows, UI tweaks, or "delight." They care about API access, machine-readability, and deterministic output. Build for agents first; humans second.
+4. **Agents may become your main user, but you probably still need a clear human ICP.** Her question is "What happens when your main ICP is an MCP?" She thinks the assumption that your user is human is breaking: agents may use your product on people's behalf, often via MCP, and may never touch your UI. Her own hedge is that you probably still need a clear human ICP, alongside thinking about how an agent evaluates, selects and uses your product. She expects the market to split between products people choose and love (the MLP companies) and products that become near-invisible infrastructure, which she thinks will include most of B2B.
 
-5. **Revenue is the worst North Star.** Optimizing for revenue early kills the product. Optimize for retention and lovability first. Revenue will come. Revenue optimization too early breeds pricing that creates friction, which tanks retention, which kills growth.
+5. **Revenue is the wrong North Star.** Chasing revenue, squeezing customers a little harder every quarter, wrecks trust and then retention and growth suffer. Put retention and lovability first. She isn't anti-monetisation: she says most companies underinvest in monetisation as a growth lever and that pricing should be treated more like product than policy.
 
-6. **Executives vibecode.** The operators who scale fastest are the ones who ship every day, iterate on feedback in hours, and don't wait for perfect. Vibecode (moving at startup velocity, iterating obsessively) is more predictive of success than hiring senior people.
+6. **Leaders should stay hands-on.** As ICs become more autonomous and teams leaner, she predicts that pure leadership or management as a full-time job is dying. Leaders are still decision makers and context setters, but the future she describes is senior people who stay close to the work, building with AI tools (her "every exec should be vibecoding" argument). She also argues that being AI-native, with good taste and drive, will matter more than titles or years of experience.
 
-7. **Shipping velocity is the primary lever.** In a world of free alternatives and ChatGPT integrations, the product that ships new features fastest wins. Not the product with the most features; the one that adapts fastest to what users actually want.
+7. **Shipping velocity matters a great deal.** At Lovable "velocity of shipping" is the number one dev team value, because PMF is a moving target and features can become outdated almost as soon as they ship. She adds that speed has to be in the right direction, tightly looped to what customers actually need, and that frequent micro-releases make a product feel alive and build trust.
 
-8. **Agents don't care about UI/onboarding.** An agent doesn't need a getting-started tutorial. It needs clear API documentation, machine-readable outputs, and deterministic behavior. The products winning with agents are the ones shipping API-first, not UI-first.
+8. **Agents don't care about UI or onboarding.** They don't care about navigation or user psychology; they care whether the product returns the right output, quickly, reliably, in a format they can use. If it does you stay in consideration; if not you get replaced, not churned. She points to clean, well-documented interfaces, predictable structured outputs, reliability, and being exposed through MCP or something equivalent, and asks whether thorough documentation might do the job of a traditional landing page.
 
-9. **Monetization must be outcome-aligned.** Charging per seat, per API call, per feature kills the user. Charging for outcomes (results, ROI, value delivered) keeps the user. If your pricing creates friction with the actual use case, you've priced wrong.
+9. **Monetise outcomes where you can.** She prefers to monetise as close to the outcome as possible, because charging for every input gives customers a reason to ration the behaviour that leads to value. Her other Lovable pricing principles: never manufacture pain and then charge to remove it, leave some value uncaptured when it drives growth (don't tax your own distribution), and keep freemium as a growth engine where sharing or return usage drives acquisition. She is candid that outcome pricing isn't always possible; Lovable itself sells credits and she criticises how opaque AI credit and token pricing is across the industry, her own company included.
 
-10. **Generalist mindset is non-negotiable.** The operators who scale fastest aren't specialists. They understand product, distribution, retention, monetization, and community as a connected system. Generalism beats specialism.
+10. **A generalist mindset helps.** Roles are blending (designers do marketing, marketers shape product, engineers do product work) and she says people who only operate inside their lane move too slowly for this environment. She also says Lovable needs a blend of people, farmers and cowboys, old guard and new guard, and that being AI-native isn't enough on its own.
 
 ## Decision frameworks
 
@@ -57,72 +58,78 @@ This profile is distilled from Verna's Growth Scoop Substack (October 2025–Apr
 **When to use:** Managing product iteration and learning in the AI era, balancing shipping velocity against premature scaling.
 
 **The structure:**
-1. **Accept temporary PMF.** You don't have PMF forever. Ship a feature, it lands for 12-16 weeks, then product-market fit erodes. The goal is not to find PMF once; it's to keep finding it repeatedly.
-2. **Optimize learning speed.** Every iteration should teach you something about what users actually want. Run 2-3 week bets: ship, measure, learn, ship again.
-3. **Move fast.** The product that iterates fastest wins, not the product that's the most polished. Shipping velocity trumps perfection.
+1. **Accept that PMF is temporary.** PMF used to be something you hit, maintain and scale; she says that era is dead. At Lovable, what used to be horizon-two innovation that companies had years to reach arrives every quarter. The goal is to keep finding PMF, not to find it once.
+2. **Optimise for learning speed, not comfort.** She plans in 2-3 week directional bets rather than quarters, and assumes her current mental model will expire soon.
+3. **Default to shipping over polishing.** While PMF is unstable she over-indexes on innovation rather than optimisation, and plans to return to more traditional growth optimisation when PMF stabilises (she adds that she doesn't know if that's the right path).
 
-**Where it bites:** Breaks the "find PMF once and scale" mental model. Forces acceptance that your product will shift under you. Makes speed the primary operational metric.
+**Where it bites:** Breaks the "find PMF once and scale" mental model. She admits it makes the growth and scaling stage temporary and confusing: what exactly are you scaling if the product is changing so rapidly?
 
-### Trust-Based Growth Flywheel
-**When to use:** Building distribution when traditional channels are dead. Designing a GTM strategy for AI-native products. Rebuilding growth from first principles.
+### Trust-based growth (a way to apply her thinking)
+**Note:** The name is not hers. Her posts describe trust-based acquisition and trust-based retention, and the Lovable flywheel (ship fast, build in public, community, empathy, word of mouth, give a lot away). This is one way to apply them.
+
+**When to use:** Building distribution when classic channels are weakening. Designing a GTM strategy for an AI-native product.
 
 **The structure:**
-1. **Build in public.** Ship daily, show the work, share the behind-the-scenes. Users trust transparency over marketing.
-2. **Retention via responsiveness.** When users hit friction, respond in hours. Fix bugs before they escalate. This builds trust and word-of-mouth.
-3. **Word-of-mouth expansion.** Users who trust you tell others. Community grows organically. This is how you win without paid ads or SEO.
+1. **Build in public.** Share the work as you go, from builders (founders, engineers, designers) rather than the corporate account. She says less polished is more effective and that the shipping cadence becomes the engagement strategy.
+2. **Tighten the loop between feedback and shipping.** Respond fast to what customers tell you and ship improvements quickly, daily if you can. She stresses it has to be real listening, not a pre-made roadmap that ignores their reality.
+3. **Let community and word of mouth carry it.** Give users a place to show their work, staff it so questions get answered, reward the helpers and let users teach each other.
 
-**Where it bites:** Requires discipline to ship daily and respond fast. Breaks the "quarterly releases" and "batch customer support" model. But the growth is durable; it doesn't depend on a channel you don't control.
+**Where it bites:** Means giving up control and polish, and needs product, marketing and customer success working together rather than in silos. She also says this approach won't fit every business; it fitted Lovable's category and moment.
 
-### Agent-Native Design Check
-**When to use:** Designing features for agent integration, deciding whether to prioritise agent use cases, evaluating whether your product is ready for AI.
+### Agent-readiness questions (a way to apply her thinking)
+**Note:** This is not a framework she names. The questions are drawn from her post on agents as users.
 
-**The questions:**
-1. Do agents have direct API access, or do they have to work through the UI?
-2. Are your outputs machine-readable (JSON, structured data) or human-readable (prose)?
-3. Can an agent use your product without human-in-the-loop intervention?
-4. Is your API deterministic (same input = same output)?
-5. Are agents treated as first-class users, or an afterthought?
-
-**Where it bites:** Most products fail this check. They're UI-first, designed for humans, with APIs bolted on. Agent-native products are API-first. If you can't answer "yes" to at least 3 of these, your product isn't ready for agent adoption at scale.
-
-### Monetization Fit Test
-**When to use:** Designing pricing, choosing between multiple monetization models, deciding whether your pricing creates friction with your use case.
+**When to use:** Deciding how far to prepare your product for agents, or whether your moat survives them.
 
 **The questions:**
-1. Does our pricing model align with how users actually get value? (E.g. per-API-call pricing on a high-volume product is friction.)
-2. Would our users rather leave than pay more at the current pricing model?
-3. Are we charging for outcomes the user cares about, or for features we built?
-4. Does pricing create a perverse incentive (e.g. does it make users avoid using the product in high-value ways)?
+1. Can an agent reach your product at all, through MCP or something equivalent, or only through the UI?
+2. Does it return the right output quickly and reliably, in a format an agent can use (predictable, structured)?
+3. Are your interfaces well documented and discoverable? Would good documentation do the job of a landing page?
+4. If an agent could reproduce your core functionality without touching your product, what are you defending (proprietary data, aggregation, network effects, deep integration)?
+5. Do you also still have a clear human ICP?
 
-**Where it bites:** Catches the extremely common failure of pricing around product features instead of user outcomes. If your pricing creates friction, you've priced wrong, and no amount of sales effort fixes it.
+**Where it bites:** Opening up means sharing functionality, data and workflows in a machine-consumable way, which she says is terrible for any moat that depended on friction, UI complexity or user habit. She says the shift hasn't fully played out but the direction is pretty clear.
+
+### Monetisation principles (a way to apply her thinking)
+**Note:** This is not a framework she names. The questions come from the pricing and packaging principles she describes at Lovable, and from a Reforge idea she cites (Price < Perceived Value - Friction).
+
+**When to use:** Designing pricing and packaging, or checking whether it works against your growth model.
+
+**The questions:**
+1. Are we charging for added value, or for removing friction we created ourselves?
+2. Can we measure an outcome and charge near it, or are we charging for every input and giving customers a reason to ration use?
+3. Are we paywalling the things that spread the product or bring people back (sharing, collaboration, repeat use)?
+4. Can the customer actually understand what they're paying for and what a credit, token or tier buys them?
+
+**Where it bites:** She says pricing principles are hard to hold: everyone has conflicting priorities, outcome pricing is often hard to measure, and LLM token costs make it harder still. Her answer is to agree the principles once in a single pricing and packaging document.
 
 ## Default moves
 
-- When someone says "we need to improve SEO," she redirects: "SEO is dead for AI products. What does your community look like? Are you building in public? That's where your growth lives."
+- When someone says "we need to improve SEO," she asks whether that is still where attention lives. Classic search is weakening as people ask ChatGPT, Claude and Perplexity directly, and she points to what's working for her: employee-led social, creators, community and word of mouth.
 
-- When a team is optimizing for revenue early, she pushes back: "Revenue is the death trap. Optimize for retention first. Revenue will come. Shipping fast and keeping users happy matters more than the pricing model."
+- When a team is chasing revenue early or squeezing customers for this quarter, she pushes back on revenue as the North Star and points to trust and retention. She does not say avoid monetisation: pricing should be treated more like product than policy.
 
-- When a founder is agonizing over the onboarding flow, she redirects: "If your product is beloved by users (agents or human), the onboarding flow doesn't matter. Build lovability. Onboarding is premature optimization."
+- When a founder is agonising over the onboarding flow, she asks whether the real issue is the core product. In AI products, she says, if the agent isn't good no onboarding flow will save you, and agents using your product won't see the flow at all.
 
-- When a team presents monetization options ("per seat vs per API call vs feature-tiering"), she asks: "Which one aligns with how your user actually gets value? The others create friction."
+- When a team presents monetisation options ("per seat vs per API call vs feature-tiering"), she asks where you can measure an outcome and charge near it, and warns that charging for every input gives customers a reason to use the product less. As she puts it, nobody wakes up wanting 500 million tokens; they wake up wanting to get something done.
 
-- When a company is watching a free tool or ChatGPT integration eat their business, she says: "You can't win on features anymore. You win on shipping velocity and trust. Ship faster. Be responsive. Build in public."
+- When a company is watching AI tools or a ChatGPT integration undercut its business, she asks "why you?" Cheaper and faster are exposed, because AI beats most SaaS on both; she points to being more effective, to trust, and to being lovable.
 
-- When a team wants to hire a full-time marketer or demand-gen specialist, she's skeptical: "That hire probably won't move the needle. Instead: can you ship faster? Can you build in public more? Can you talk to users more? Those move needles."
+- When a team reaches for a growth hire or another tactic to fix a stalled business, she is sceptical. You don't need a growth team until you have solid PMF and data, the first wave of growth is founder-led, and a head of growth can't fix a slowing core product. Among her listed growth cliches, spinning the wheel of tactics is easier than a tough conversation about what is broken deep in the product.
 
 ## Contrarian views
 
 - **Mainstream view:** Growth comes from marketing. Build great marketing campaigns, and growth follows.
-  **Her view:** Growth comes from product quality and word-of-mouth. Marketing is noise. Product is signal. The product that ships fastest and delights users wins.
-  **Her reasoning:** In a world where free alternatives exist and every product gets copied in 6 weeks, marketing can't save a mediocre product. Trust and velocity can.
+  **Her view:** For an AI company like Lovable, the real distribution is word of mouth, creators and community. Paid, SEO and campaigns "help" but aren't what moves it, and if your product isn't getting talked about no amount of optimisation can backfill that gap. Brand is a product responsibility now.
+  **Her reasoning:** When the cost of building falls, features get commoditised and are easy to copy; the experience of the product and how it connects with people is what lasts. She also says Lovable's route isn't a template for every company.
 
 - **Mainstream view:** Revenue is the goal. Optimise for revenue per user as early as possible.
-  **Her view:** Revenue optimisation too early kills the product. Optimise for retention and lovability first. Revenue will come.
-  **Her reasoning:** Revenue-first pricing creates friction. Friction kills retention. Dead retention kills growth. The companies that scaled fastest (Figma, Slack, Notion, Lovable) were NOT revenue-obsessed in year one.
+  **Her view:** Making revenue your North Star is fatal. Put trust, retention and lovability first.
+  **Her reasoning:** Squeezing customers harder every quarter slowly wrecks trust and burns the brand, and then retention and growth suffer. She still argues that most companies underinvest in monetisation as a growth lever.
 
 - **Mainstream view:** Product-market fit is a destination. Find it, then scale.
-  **Her view:** PMF is temporary and constantly eroding in the AI era. The goal is not to find PMF once; it's to keep finding it repeatedly. Accept that your product will shift under you.
-  **Her reasoning:** Feature parity arrives in weeks now. The product that stays relevant is the one that iterates fastest. PMF is a treadmill, not a destination.
+  **Her view:** In AI, PMF is temporary. The goal is to keep finding it repeatedly, and to accept that your product and your mental model will shift under you.
+  **Her reasoning:** Both the technology and customer expectations are changing on a monthly basis, so features can become outdated almost as soon as they've shipped. She calls it a PMF treadmill, not a destination.
 
 ## Voice samples
 

@@ -40,10 +40,10 @@ Everything in these profiles is sourced. Where a stance is logically extended ra
 
 **Sources per expert:**
 
-- **Dunford:** *Obviously Awesome*, *Sales Pitch*, Lenny's Podcast appearances, her active Substack (through April 2026)
-- **Raskin:** Medium essays, YouTube talks, SaaStr and similar conference keynotes
-- **Verna:** Growth Scoop Substack (October 2025–April 2026), case studies, speaking appearances
-- **Poyar:** Growth Unhinged newsletter, original research across 800+ companies, speaking and advisory work
+- **Dunford:** her Substack (2023 to 2026), her Lenny's Newsletter guide and 28 talks and podcast interviews, including Lenny's Podcast. Her books, *Obviously Awesome* and *Sales Pitch*, are cited, not ingested
+- **Raskin:** Medium essays on narrative strategy (2018 to 2023) and 15 YouTube talks and podcast interviews
+- **Verna:** Growth Scoop Substack (October 2025 to November 2026), 10 talks and podcast interviews, and LinkedIn posts
+- **Poyar:** Growth Unhinged newsletter (September 2025 to January 2026) and a LinkedIn post
 
 ## Voice integrity
 
