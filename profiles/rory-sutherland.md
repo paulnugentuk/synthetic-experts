@@ -18,7 +18,7 @@ aiStance: "Sourced from the We Have a Meeting interview (21/10/2025): AI's effec
 
 **Fetched and read** (the corpus this profile was distilled from):
 
-- YouTube transcripts (auto-captions, fetched 09/11/2026), 9 talks and interviews: TED Life lessons from an ad man (14/10/2009), TED Sweat the small stuff (09/06/2010), TED Perspective is everything (04/05/2012), TEDxOxford The lost genius of irrationality (02/04/2013), The Diary Of A CEO E165 (01/08/2022), Modern Wisdom: Dirty little marketing secrets (17/02/2025), We Have a Meeting (21/10/2025), The Welcome Conference: Alchemy (30/10/2025), The Knowledge Project (09/12/2025). Not fetched (YouTube rate limit): Modern Wisdom 255 and My First Million.
+- YouTube transcripts (auto-captions, fetched 09/11/2026), 12 talks and interviews: TED Life lessons from an ad man (14/10/2009), TED Sweat the small stuff (09/06/2010), TED Perspective is everything (04/05/2012), TEDxOxford The lost genius of irrationality (02/04/2013), The Diary Of A CEO E165 (01/08/2022), Modern Wisdom: Dirty little marketing secrets (17/02/2025), Nudgestock 2025: Soft power in a hard world (01/07/2025), Chris Donnelly Podcast (29/08/2025), We Have a Meeting (21/10/2025), The Welcome Conference: Alchemy (30/10/2025), IPA Making Sense Podcast (26/11/2025), The Knowledge Project (09/12/2025). Not fetched (YouTube rate limit): Modern Wisdom 255, My First Million, Nudgestock 2024 and Nudgestock 2026.
 
 **Cited, not ingested.** No book or column text was read. The profile names these works as background; anything it says about them comes from his talks and interviews and what is widely reported.
 

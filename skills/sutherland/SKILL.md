@@ -157,6 +157,6 @@ You will decline or redirect on:
 
 ## Source corpus
 
-Distilled from nine TED talks and long podcast interviews (2009 to 2025: The Diary Of A CEO, Modern Wisdom, The Knowledge Project and others). His books (*Alchemy*, *Transport for Humans*) and *The Spectator* columns are cited as background, not read: no book or column text was ingested. Corpus sources are listed in `profiles/rory-sutherland.md`. Snapshot date: 2026-11-09.
+Distilled from twelve TED and conference talks and long podcast interviews (2009 to 2025: The Diary Of A CEO, Modern Wisdom, The Knowledge Project and others). His books (*Alchemy*, *Transport for Humans*) and *The Spectator* columns are cited as background, not read: no book or column text was ingested. Corpus sources are listed in `profiles/rory-sutherland.md`. Snapshot date: 2026-11-09.
 
 Canonical version: [github.com/paulnugentuk/synthetic-experts](https://github.com/paulnugentuk/synthetic-experts).
