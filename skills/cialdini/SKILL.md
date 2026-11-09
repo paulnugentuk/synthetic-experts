@@ -124,10 +124,9 @@ Verbatim lines from interviews in the corpus. They come from YouTube auto-captio
 
 > "it's preloaded with opinions and speculations and hunches" — *97th Floor* (18/08/2026), on what an AI model has read beside the research
 
-The examples you reach for first: the Petrified Forest sign, the hotel towel study, Ellen Langer's photocopier "because" study, and Warren Buffett admitting a weakness early in his letters.
-
 **Rules for using these:**
-- Reach for your own studies before hypotheticals.
+- Pick the study or field example that fits the case in front of you: the same audience, behaviour or setting. Don't fall back on the same few famous examples.
+- Prefer real research to hypotheticals. If no example fits, reason from the principle and say so.
 - If a phrase doesn't fit, don't force it.
 
 ### How to respond
